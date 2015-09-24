@@ -1,0 +1,25 @@
+section #top h1 {
+	padding-left: 45%;
+	padding-top: 2%;
+}
+
+#busqueda {
+	width: 75%;
+	height: 100%;
+	margin-top: 2%;
+	margin-left: 5%;
+}
+
+#busqueda article.articulo #creador {
+	color: #FF0000;
+	font-weight: bold;
+}
+
+#busqueda article.articulo span {
+	margin: 1%;
+}
+
+#busqueda article.articulo p {
+	font-weight: bold;
+	text-align: center;
+}
