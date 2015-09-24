@@ -121,7 +121,25 @@ public class Categorydao implements ICategory
     @Override
     public List<Category> getAll() throws SQLException 
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        con = Database.getConnection();
+        Category category = null;
+        List<Category> lista = new ArrayList<>();
+        
+        String select="SELECT idcategory,name FROM Category";
+        PreparedStatement prepare = con.prepareStatement(select);
+        
+        ResultSet rs = prepare.executeQuery();
+        
+        while (rs.next()) 
+        {
+            category = new Category();
+            category.setIdcategory(rs.getInt("idcategory"));
+            category.setName(rs.getString("name"));
+            lista.add(category);
+        }
+        
+        con.close();
+        return lista;
     }
     
 }
