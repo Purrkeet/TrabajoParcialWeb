@@ -1,6 +1,7 @@
 package pe.edu.upc.dao.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,8 +28,9 @@ public class Articledao implements IArticle {
         prepare1.setInt(2, o.getScore());
         prepare1.setString(3, o.getText());
         prepare1.setInt(4, o.getUser().getIduser());
-        prepare1.setDate(5, o.getCreate_time());
-        prepare1.setDate(6, o.getUpdate_time());
+        //revisar - 
+        prepare1.setDate(5, (Date) o.getCreate_time());
+        prepare1.setDate(6, (Date) o.getUpdate_time());
         rpta = prepare1.executeUpdate();
 
         if (rpta > 0) {
