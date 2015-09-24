@@ -12,29 +12,110 @@ import pe.edu.upc.entity.Category;
 
 public class Categorydao implements ICategory
 {
-
+    private Connection con = null;
+    
     @Override
     public String create(Category o) throws SQLException 
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int rpta;
+        con = Database.getConnection();
+        con.setAutoCommit(false);
+ 
+        String insert = "INSERT INTO Category (name) " + "VALUES(?)";
+        
+        PreparedStatement prepare = con.prepareStatement(insert, PreparedStatement.RETURN_GENERATED_KEYS);
+        prepare.setString(1, o.getName());
+        rpta = prepare.executeUpdate();
+
+        if (rpta > 0) 
+        {
+            con.commit();
+            con.close();
+            return "Categoria creada";
+        } 
+        
+        else 
+        {
+            con.rollback();
+            con.close();
+            return "Error al crear categoria";
+        }
     }
 
     @Override
     public Category read(int id) throws SQLException
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        con = Database.getConnection();
+        Category category = null;
+        String select = "SELECT idcategory,name FROM Category";
+        PreparedStatement prepare = con.prepareStatement(select);
+        ResultSet rs = prepare.executeQuery();
+        
+        if (rs.next()) 
+        {
+            category = new Category();
+            category.setIdcategory(rs.getInt("idcategory"));
+            category.setName(rs.getString("name")); 
+        }
+        con.close();
+        return category;
     }
 
     @Override
     public String update(Category o) throws SQLException 
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int rpta;
+        con = Database.getConnection();
+        con.setAutoCommit(false);
+       
+        String insert = "UPDATE Category SET name=? WHERE idcategory=?";                
+        PreparedStatement prepare = con.prepareStatement(insert);
+        prepare.setString(1, o.getName());
+        prepare.setInt(3, o.getIdcategory());
+        
+        rpta = prepare.executeUpdate();
+         
+         if (rpta > 0)
+         {  
+            con.commit();
+            con.close();
+            return "Categoria actualizada correctamente";
+         } 
+         else 
+         {        
+            con.rollback();
+            con.close();
+            return "Error al actualizar categoria";
+         }
+
     }
 
     @Override
     public String delete(int id) throws SQLException 
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int rpta;
+        con = Database.getConnection();
+        con.setAutoCommit(false);
+        
+        String insert = "DELETE FROM Category WHERE idcategory=?";                
+        PreparedStatement prepare = con.prepareStatement(insert);        
+        prepare.setInt(1, id);
+        
+        rpta = prepare.executeUpdate();
+        
+        if (rpta > 0) 
+        { 
+            con.commit();
+            con.close();
+            return "Eliminación area ok";
+        } 
+        
+        else 
+        {       
+            con.rollback();
+            con.close();
+            return "Error eliminación area ";
+        }
     }
 
     @Override
