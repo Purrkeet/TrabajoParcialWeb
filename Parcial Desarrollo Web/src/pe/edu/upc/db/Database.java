@@ -8,7 +8,7 @@ public final class Database
 {
     static String hostname = "localhost";
     static String port = "3306";
-    static String database = "dbparcial"; 
+    static String database = "dbnoticias"; 
     static String username = "root";
     static String password = "root";
     static String databaseVendor = "MySQL";
