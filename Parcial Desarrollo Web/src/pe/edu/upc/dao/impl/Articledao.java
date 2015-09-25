@@ -10,6 +10,7 @@ import java.util.List;
 import pe.edu.upc.dao.IArticle;
 import pe.edu.upc.db.Database;
 import pe.edu.upc.entity.Article;
+import pe.edu.upc.entity.User;
 
 public class Articledao implements IArticle {
 
@@ -88,28 +89,23 @@ public class Articledao implements IArticle {
         int rpta;
         con = Database.getConnection();
         con.setAutoCommit(false);
-        /*
-             con = Database.getConnection();
-        Category category = null;
-        String select = "SELECT idcategory,name FROM Category WHERE idcategory = ?";
-        PreparedStatement prepare = con.prepareStatement(select);
+        String del = "DELETE FROM Article WHERE idarticle=?";                
+        PreparedStatement prepare = con.prepareStatement(del);        
         prepare.setInt(1, id);
+        rpta = prepare.executeUpdate();
         
-        ResultSet rs = prepare.executeQuery();
-        
-        if (rs.next()) 
-        {
-            category = new Category();
-            category.setIdcategory(rs.getInt("idcategory"));
-            category.setName(rs.getString("name")); 
+        if (rpta > 0) 
+        { 
+            con.commit();
+            con.close();
+            return "Articulo Eliminado";
+        } 
+        else 
+        {       
+            con.rollback();
+            con.close();
+            return "No se pudo eliminar el articulo";
         }
-        con.close();
-        return category;
-        
-        
-         }*/
-
-        return "Not Implemented";
     }
 
     @Override
@@ -137,34 +133,61 @@ public class Articledao implements IArticle {
     @Override
     public List<Article> getAll() throws SQLException {
         con = Database.getConnection();
-        Article a = null;
+        Article article = null;
         List<Article> lista = new ArrayList<>();
-        /*String select="SELECT idarea,nombre,descripcion FROM Area";
-         PreparedStatement prepare = con.prepareStatement(select);
-         ResultSet rs = prepare.executeQuery();
-         while (rs.next()) {
-         a=new Area();
-         a.setIdarea(rs.getInt("idarea"));
-         a.setNombre(rs.getString("nombre"));
-         a.setDescripcion(rs.getString("descripcion"));
-         lista.add(a);
-         }
-         con.close();*/
+        String select = "SELECT idarticle,score,text,numviews,create_time,update_time FROM Article ";
+        PreparedStatement prepare = con.prepareStatement(select);
+        ResultSet rs = prepare.executeQuery();
+        
+        while (rs.next()) 
+        {
+            article = new Article();
+            article.setIdarticle(rs.getInt("idarticle"));
+            article.setScore(rs.getInt("score"));
+            article.setText(rs.getString("text"));
+            article.setNumviews(rs.getInt("numviews"));
+            article.setCreate_time(rs.getDate("create_time"));
+            article.setUpdate_time(rs.getDate("update_time"));
+            lista.add(article);
+        }
+        
+        con.close();
         return lista;
     }
 
     @Override
-    public List<Article> getAllarticlesbyid(int idarticle) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public List<Article> getAllarticlesbyuser(int iduser) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            con=Database.getConnection();
+            Article article = null;
+            User user = null;  
+            List<Article> lista = new ArrayList<>();
+            //esta query esta mal , hay que corregirla
+            String select="SELECT c.idarticle, c.TEXT, c.score, c.iduser, c.idarticle FROM Article a," + " User u WHERE u.iduser = c.iduser AND u.iduser = ?";                   
+            PreparedStatement prepare = con.prepareStatement(select);
+            prepare.setInt(1, iduser);
+            ResultSet rs = prepare.executeQuery();
+             while (rs.next()) 
+            {
+                article = new Article();
+                article.setIdarticle(rs.getInt("idarticle"));
+                article.setScore(rs.getInt("score"));
+                article.setText(rs.getString("text"));
+                article.setNumviews(rs.getInt("numviews"));
+                article.setCreate_time(rs.getDate("create_time"));
+                article.setUpdate_time(rs.getDate("update_time"));
+                lista.add(article);
+            }
+             
+             con.close();
+             return lista;  
+            
+            
     }
 
     @Override
     public List<Article> getAllarticlesbytitle(int iduser) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+
 }
