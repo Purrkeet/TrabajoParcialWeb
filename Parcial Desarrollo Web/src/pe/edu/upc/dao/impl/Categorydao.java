@@ -47,8 +47,10 @@ public class Categorydao implements ICategory
     {
         con = Database.getConnection();
         Category category = null;
-        String select = "SELECT idcategory,name FROM Category";
+        String select = "SELECT idcategory,name FROM Category WHERE idcategory = ?";
         PreparedStatement prepare = con.prepareStatement(select);
+        prepare.setInt(1, id);
+        
         ResultSet rs = prepare.executeQuery();
         
         if (rs.next()) 

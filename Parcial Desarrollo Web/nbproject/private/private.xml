@@ -3,13 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Hito%202/Parcial%20Desarrollo%20Web/src/pe/edu/upc/dao/impl/Commentdao.java</file>
-            <file>file:/E:/Hito%202/Parcial%20Desarrollo%20Web/src/pe/edu/upc/entity/Article.java</file>
-            <file>file:/E:/Hito%202/Parcial%20Desarrollo%20Web/src/pe/edu/upc/entity/User.java</file>
-            <file>file:/E:/Hito%202/Parcial%20Desarrollo%20Web/src/pe/edu/upc/dao/impl/Articledao.java</file>
-            <file>file:/E:/Hito%202/Parcial%20Desarrollo%20Web/src/pe/edu/upc/entity/Comment.java</file>
-            <file>file:/E:/Hito%202/Parcial%20Desarrollo%20Web/src/pe/edu/upc/entity/Category.java</file>
-            <file>file:/E:/Hito%202/Parcial%20Desarrollo%20Web/src/pe/edu/upc/dao/impl/Categorydao.java</file>
+            <file>file:/E:/BioZ/GIT%20HUB%20stuff/Desarrollo%20web/Parcial%20Desarrollo%20Web/src/pe/edu/upc/dao/impl/Commentdao.java</file>
+            <file>file:/E:/BioZ/GIT%20HUB%20stuff/Desarrollo%20web/Parcial%20Desarrollo%20Web/src/pe/edu/upc/dao/impl/Categorydao.java</file>
+            <file>file:/E:/BioZ/GIT%20HUB%20stuff/Desarrollo%20web/Parcial%20Desarrollo%20Web/src/pe/edu/upc/dao/impl/Articledao.java</file>
         </group>
     </open-files>
 </project-private>
