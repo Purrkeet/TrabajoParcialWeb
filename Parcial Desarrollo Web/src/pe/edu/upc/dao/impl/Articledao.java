@@ -53,24 +53,34 @@ public class Articledao implements IArticle {
         int rpta;
         con = Database.getConnection();
         con.setAutoCommit(false);
-        /*String insert = "UPDATE Area SET nombre=?,descripcion=? "
-         + "WHERE idarea=?";                
-         PreparedStatement prepare = con.prepareStatement(insert);
-         prepare.setString(1, o.getNombre());
-         prepare.setString(2, o.getDescripcion());
-         prepare.setInt(3, o.getIdarea());
-         rpta = prepare.executeUpdate();
-         if (rpta > 0) {  
-         con.commit();
-         con.close();
-         return "Actualización area ok";
-         } else {        
-         con.rollback();
-         con.close();
-         return "Error actualización area ";
-         }*/
-
-        return "Not Implemented";
+        String update = "UPDATE Article SET score=?,text=?,numviews=?,create_time=?"
+                       +"      update_time=?,iduser=? WHERE idarticle=?";
+        PreparedStatement prepare = con.prepareStatement(update);
+        prepare.setInt(1, o.getScore());
+        prepare.setString(2, o.getText());
+        prepare.setInt(3, o.getNumviews());
+        java.sql.Date createDate = new java.sql.Date(o.getCreate_time().getTime());
+        prepare.setDate(4,createDate);
+        java.sql.Date updateDate = new java.sql.Date(o.getUpdate_time().getTime());
+        prepare.setDate(5,updateDate);
+        prepare.setInt(6,o.getUser().getIduser());
+        rpta = prepare.executeUpdate();
+        
+        
+        if (rpta > 0)
+         {  
+            con.commit();
+            con.close();
+            return "Article actualizada correctamente";
+         } 
+         else 
+         {        
+            con.rollback();
+            con.close();
+            return "Error al actualizar Article";
+         }
+        
+        
     }
 
     @Override
@@ -78,18 +88,25 @@ public class Articledao implements IArticle {
         int rpta;
         con = Database.getConnection();
         con.setAutoCommit(false);
-        /*String insert = "DELETE FROM Area WHERE idarea=?";                
-         PreparedStatement prepare = con.prepareStatement(insert);        
-         prepare.setInt(1, id);
-         rpta = prepare.executeUpdate();
-         if (rpta > 0) { 
-         con.commit();
-         con.close();
-         return "Eliminación area ok";
-         } else {  
-         con.rollback();
-         con.close();
-         return "Error eliminación area ";
+        /*
+             con = Database.getConnection();
+        Category category = null;
+        String select = "SELECT idcategory,name FROM Category WHERE idcategory = ?";
+        PreparedStatement prepare = con.prepareStatement(select);
+        prepare.setInt(1, id);
+        
+        ResultSet rs = prepare.executeQuery();
+        
+        if (rs.next()) 
+        {
+            category = new Category();
+            category.setIdcategory(rs.getInt("idcategory"));
+            category.setName(rs.getString("name")); 
+        }
+        con.close();
+        return category;
+        
+        
          }*/
 
         return "Not Implemented";
@@ -97,20 +114,24 @@ public class Articledao implements IArticle {
 
     @Override
     public Article read(int id) throws SQLException {
-        con = Database.getConnection();
-        Article a = null;
-        String select = "SELECT idarea,nombre,descripcion FROM Area WHERE idarea=?";
-        PreparedStatement prepare = con.prepareStatement(select);
-        prepare.setInt(1, id);
-        ResultSet rs = prepare.executeQuery();
-        if (rs.next()) {
-            a = new Article();
-            /*a.setIdarea(rs.getInt("idarea"));
-             a.setNombre(rs.getString("nombre"));
-             a.setDescripcion(rs.getString("descripcion")); */
-        }
-        con.close();
-        return a;
+                con = Database.getConnection();
+                Article article = null ; 
+                String select = "SELECT idarticle,score,text,numviews,create_time,update_time FROM Article WHERE idarticle=?";
+                PreparedStatement prepare = con.prepareStatement(select);
+                prepare.setInt(1, id);
+                ResultSet rs = prepare.executeQuery();
+               
+                article = new Article();
+                article.setIdarticle(rs.getInt("idarticle"));
+                article.setScore(rs.getInt("score"));
+                article.setText(rs.getString("text"));
+                article.setNumviews(rs.getInt("numviews"));
+                article.setCreate_time(rs.getDate("create_time"));
+                article.setUpdate_time(rs.getDate("update_time"));
+
+
+                con.close();
+                return article;
     }
 
     @Override
