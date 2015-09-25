@@ -1,6 +1,6 @@
 package pe.edu.upc.entity;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class User 
 {
@@ -8,7 +8,7 @@ public class User
     private String username;
     private String email;
     private String password;
-    private Timestamp create_time;
+    private Date create_time;
     private String name;
     private String lastname;
     private int score;
@@ -29,8 +29,6 @@ public class User
     public void setEmail(String email) {this.email = email;}
     public String getPassword() {return password;}
     public void setPassword(String password) {this.password = password;}
-    public Timestamp getCreate_time() {return create_time;}
-    public void setCreate_time(Timestamp create_time) {this.create_time = create_time;}
     public String getName() {return name;}
     public void setName(String name) {this.name = name;}
     public String getLastname() {return lastname;}
@@ -43,12 +41,13 @@ public class User
     public void setFacebookid(String facebookid) {this.facebookid = facebookid;}
     public String getProfileinfo() {return profileinfo;}
     public void setProfileinfo(String profileinfo) {this.profileinfo = profileinfo;}
+    public Date getCreate_time() {return create_time;}
+    public void setCreate_time(Date create_time) {this.create_time = create_time;}
 
     @Override
     public String toString() 
     {
         return "User{" + "iduser=" + iduser + ", username=" + username + ", email=" + email + ", password=" + password + ", create_time=" + create_time + ", name=" + name + ", lastname=" + lastname + ", score=" + score + ", steamid=" + steamid + ", facebookid=" + facebookid + ", profileinfo=" + profileinfo + '}';
-    }
-    
+    }  
     
 }

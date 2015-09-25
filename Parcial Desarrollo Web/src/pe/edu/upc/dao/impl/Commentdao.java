@@ -62,7 +62,7 @@ public class Commentdao implements IComment
         con = Database.getConnection();
         con.setAutoCommit(false);
        
-        String insert = "UPDATE Category SET TEXT=?,score=?,iduser=?,idarticle=? WHERE idcomment=?";                
+        String insert = "UPDATE Comment SET TEXT=?,score=?,iduser=?,idarticle=? WHERE idcomment=?";                
         PreparedStatement prepare = con.prepareStatement(insert);
         prepare.setString(1, o.getTEXT());
         prepare.setInt(2, o.getScore());

@@ -12,9 +12,7 @@ public class Article
     private String text;
     private int numviews;
     private Date create_time;
-    
     private Date update_time;
-    
     private User user;
 
     public Article() 
