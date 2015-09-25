@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pe.edu.upc.controller;
 
 import java.io.IOException;
@@ -17,10 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import pe.edu.upc.entity.Article;
 import pe.edu.upc.model.Articlemodel;
 
-/**
- *
- * @author Alumnos
- */
 @WebServlet(name = "ServletArticle", urlPatterns = {"/ServletArticle"})
 public class ServletArticle extends HttpServlet {
 

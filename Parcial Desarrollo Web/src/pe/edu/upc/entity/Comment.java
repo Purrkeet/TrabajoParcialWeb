@@ -8,7 +8,6 @@ public class Comment
     
     private User user;
     private Article article;
-    private Comment padre=null;
 
     public Comment() 
     {
@@ -25,13 +24,13 @@ public class Comment
     public void setUser(User user) {this.user = user;}
     public Article getArticle() {return article;}
     public void setArticle(Article article) {this.article = article;}
-    public Comment getPadre() {return padre;}
-    public void setPadre(Comment padre) {this.padre = padre;}
 
     @Override
-    public String toString() 
+    public String toString()
     {
-        return "Comment{" + "idcomment=" + idcomment + ", TEXT=" + TEXT + ", score=" + score + ", user=" + user + ", article=" + article + ", padre=" + padre + '}';
+        return "Comment{" + "idcomment=" + idcomment + ", TEXT=" + TEXT + ", score=" + score + ", user=" + user + ", article=" + article + '}';
     }
+
+    
     
 }
