@@ -152,4 +152,19 @@ public class Articledao implements IArticle {
          con.close();*/
         return lista;
     }
+
+    @Override
+    public List<Article> getAllarticlesbyid(int idarticle) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Article> getAllarticlesbyuser(int iduser) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Article> getAllarticlesbytitle(int iduser) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
