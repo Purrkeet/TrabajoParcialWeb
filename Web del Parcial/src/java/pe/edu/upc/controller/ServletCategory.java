@@ -29,40 +29,44 @@ public class ServletCategory extends HttpServlet
         List<Category> lista = new ArrayList<>();
 
         String nombre, descripcion;
-        int idcategory;
+        int idcategory=0;
         
         try (PrintWriter out = response.getWriter()) 
         {
+            switch(peticion){
             case "LIST":
-            
-                Lis(request, response,lista, amodel);                  
+            lista = categorymodel.GetList();
+                //Lis(request, response,lista, categorymodel);                  
                 break;
 
             case "INS":
                    //TODO
-
-                    Listarreas(request, response,lista, amodel);  
+                    categorymodel.Register(category);
+                  //  Listarreas(request, response,lista, categorymodel);  
                     break;
 
             case "EDIT":
-                    //TODO
-                    
+                    // falta obtener el id categorie
+                //idCategory= request.getParameter("idcategory");
+                    categorymodel.Get(idcategory);
                     response.sendRedirect("admin/updarea.jsp");
                     break;
 
             case "UPD":
                     //TODO
 
-                    amodel.Actualizararea(a);
+                    categorymodel.Update(category);
 
-                    Listarreas(request, response,lista, amodel);  
+                  //  Listarreas(request, response,lista, categorymodel);  
                     break;
 
             case "DEL":
                     //TODO
-                    
-                    Listarreas(request, response,lista, amodel);  
-                    break;
+                    categorymodel.Delete(idcategory);
+                  //  Listarreas(request, response,lista, categorymodel);  
+                    break;    
+            }
+            
         }
     }
 
