@@ -35,17 +35,22 @@ public class ServletArticle extends HttpServlet
         {
            switch(peticion)
            {
-               case "LIST":
+               case "CREATE":
                    
                    break;
-               case "INS":
+               case "READ":
                    break;
-               case "EDIT":
+               case "UPDATE":
                    break;
-               case "UPD":
+               case "DELETE":
                    break;
-               case "DEL":
+               case "GETAll":
                    break;
+               case "GETAllBYUSER":
+                   break;
+               case "GETAllBYTITLE":
+                   break;   
+                
            }
         }
     }

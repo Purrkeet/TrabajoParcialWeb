@@ -33,16 +33,16 @@ public class ServletComment extends HttpServlet
         {
             switch(peticion)
            {
-               case "LIST":
+               case "CREATE":
                    
                    break;
-               case "INS":
+               case "UPDATE":
                    break;
-               case "EDIT":
+               case "DELETE":
                    break;
-               case "UPD":
+               case "GETAllBYARTICLE":
                    break;
-               case "DEL":
+               case "GETAllBYUSER":
                    break;
            }
         }
