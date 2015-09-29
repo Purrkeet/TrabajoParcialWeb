@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es" onClick="checkClick(event)">
 <head>
@@ -58,8 +59,8 @@
 				<nav id="menu">
 					<ul>
 						<li><a href="editar_perfil.html">Perfil</a></li>
-						<li><a href="ver_articulos.html">Adm. de Artículos</a></li>
-						<li><a href="crear_articulo.html">Crear Artículo</a></li>
+						<li><a href="ver_articulos.html">Adm. de ArtÃ­culos</a></li>
+						<li><a href="crear_articulo.html">Crear ArtÃ­culo</a></li>
 						<li><a href="faq.html">FAQ</a></li>
 						<li><a href="ingresar.html">Salir</a></li>
 					</ul>
@@ -75,20 +76,20 @@
 			<form method="POST" action="editar_perfil.html">
 				<ul>
 					<li>
-						<label>Correo electrónico:</label>
-						<input name="correo" type="text" placeholder="Ingrese su nuevo correo electrónico" />
+						<label>Correo electrÃ³nico:</label>
+						<input name="correo" type="text" placeholder="Ingrese su nuevo correo electrÃ³nico" />
 					</li>
 					<li>
 						<label>Imagen de perfil:</label>
 						<input name="imagen_perfil" type="file" />
 					</li>
 					<li>
-						<label>Contraseña:</label>
-						<input name="contraseña" type="password" placeholder="Ingresa su nueva contraseña" />
+						<label>ContraseÃ±a:</label>
+						<input name="contraseÃ±a" type="password" placeholder="Ingresa su nueva contraseÃ±a" />
 					</li>
 					<li>
-						<label>Repetir contraseña:</label>
-						<input name="re_contraseña" type="password" placeholder="Reingrese su nueva contraseña" />
+						<label>Repetir contraseÃ±a:</label>
+						<input name="re_contraseÃ±a" type="password" placeholder="Reingrese su nueva contraseÃ±a" />
 					</li>
 					<li>
 						<input type="submit" value="Guardar cambios" />

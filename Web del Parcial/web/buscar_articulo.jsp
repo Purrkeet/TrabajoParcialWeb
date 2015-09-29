@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es" onClick="checkClick(event)">
 <head>
@@ -58,22 +59,22 @@
 				<nav id="menu">
 					<ul>
 						<li><a href="editar_perfil.html">Perfil</a></li>
-						<li><a href="ver_articulos.html">Adm. de Artículos</a></li>
-						<li><a href="crear_articulo.html">Crear Artículo</a></li>
+						<li><a href="ver_articulos.html">Adm. de ArtÃ­culos</a></li>
+						<li><a href="crear_articulo.html">Crear ArtÃ­culo</a></li>
 						<li><a href="faq.html">FAQ</a></li>
 						<li><a href="ingresar.html">Salir</a></li>
 					</ul>
 				</nav>
 			</div>
 
-			<h1>Buscar Artículo</h1>
+			<h1>Buscar ArtÃ­culo</h1>
 		</article>
 	</section>
 
 	<section id="busqueda">
 		<article class="articulo">
 			<hr />
-			<p><h2>Título 1</h2></p>
+			<p><h2>TÃ­tulo 1</h2></p>
 			<p><div id="creador">Creador: Lucking</div></p>
 			<span>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -83,12 +84,12 @@
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</span>
-			<p><a href="articulo.html">Ver más ...</a></p>
+			<p><a href="articulo.html">Ver mÃ¡s ...</a></p>
 			<hr />
 		</article>
 		<article class="articulo">
 			<hr />
-			<p><h2>Título 2</h2></p>
+			<p><h2>TÃ­tulo 2</h2></p>
 			<p><div id="creador">Creador: Artsun</div></p>
 			<span>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -98,12 +99,12 @@
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</span>
-			<p><a href="articulo.html">Ver más ...</a></p>
+			<p><a href="articulo.html">Ver mÃ¡s ...</a></p>
 			<hr />
 		</article>
 		<article class="articulo">
 			<hr />
-			<p><h2>Título 3</h2></p>
+			<p><h2>TÃ­tulo 3</h2></p>
 			<p><div id="creador">Creador: Assinat</div></p>
 			<span>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -113,7 +114,7 @@
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</span>
-			<p><a href="articulo.html">Ver más ...</a></p>
+			<p><a href="articulo.html">Ver mÃ¡s ...</a></p>
 			<hr />
 		</article>
 	</section>

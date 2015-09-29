@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,8 +32,8 @@
 			<form method="POST" action="ingresar.html">
 				<label>Usuario:</label>
 				<input name="usuario" type="text" />
-				<label>Contraseña:</label>
-				<input name="contraseña" type="text" />
+				<label>ContraseÃ±a:</label>
+				<input name="contraseÃ±a" type="text" />
 				<div name="div_errores">
 				</div>
 				<input name="acceder" type="submit" value="Acceder" />

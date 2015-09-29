@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es" onClick="checkClick(event)">
 <head>
@@ -58,8 +59,8 @@
 				<nav id="menu">
 					<ul>
 						<li><a href="editar_perfil.html">Perfil</a></li>
-						<li><a href="ver_articulos.html">Adm. de Artículos</a></li>
-						<li><a href="crear_articulo.html">Crear Artículo</a></li>
+						<li><a href="ver_articulos.html">Adm. de ArtÃ­culos</a></li>
+						<li><a href="crear_articulo.html">Crear ArtÃ­culo</a></li>
 						<li><a href="faq.html">FAQ</a></li>
 						<li><a href="ingresar.html">Salir</a></li>
 					</ul>
@@ -68,7 +69,7 @@
 			<div id="perfil">
 				<h1>Home</h1>
 				<form method="GET" action="buscar_articulo.html">
-					<input name="busqueda" type="text" placeholder="Ingrese aquí el contenido a buscar ..." />
+					<input name="busqueda" type="text" placeholder="Ingrese aquÃ­ el contenido a buscar ..." />
 					<input type="submit" value="Buscar" />
 				</form>
 			</div>
@@ -81,7 +82,7 @@
 			<div class="noticia">
 				<img src="imagenes/default_noticia.jpg" />
 				<span>
-					<h1>Título 1</h1>
+					<h1>TÃ­tulo 1</h1>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -91,14 +92,14 @@
 						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 					</p>
 					<p>
-						<center><a href="articulo.html">Ver más ...</a></center>
+						<center><a href="articulo.html">Ver mÃ¡s ...</a></center>
 					</p>
 				</span>
 			</div>
 			<div class="noticia">
 				<img src="imagenes/default_noticia.jpg" />
 				<span>
-					<h1>Título 2</h1>
+					<h1>TÃ­tulo 2</h1>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -108,14 +109,14 @@
 						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 					</p>
 					<p>
-						<center><a href="articulo.html">Ver más ...</a></center>
+						<center><a href="articulo.html">Ver mÃ¡s ...</a></center>
 					</p>
 				</span>
 			</div>
 			<div class="noticia">
 				<img src="imagenes/default_noticia.jpg" />
 				<span>
-					<h1>Título 3</h1>
+					<h1>TÃ­tulo 3</h1>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -125,7 +126,7 @@
 						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 					</p>
 					<p>
-						<center><a href="articulo.html">Ver más ...</a></center>
+						<center><a href="articulo.html">Ver mÃ¡s ...</a></center>
 					</p>
 				</span>
 			</div>
