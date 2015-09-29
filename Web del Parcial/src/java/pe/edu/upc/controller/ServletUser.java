@@ -32,6 +32,29 @@ public class ServletUser extends HttpServlet
         {
            switch(peticion)
            {
+               case "login":
+                    login = request.getParameter("login");
+                    password = request.getParameter("password");
+                    
+                    //TODO: Completar el codigo                    
+                    e.setLogin(login);
+                    e.setPassword(password);
+                    
+                    e=emodel.Autenticarempleado(e);
+                    if(e!=null){
+                        if(e.getRol().equals("vendedor")){
+                            request.getSession().setAttribute("idempleado", e.getIdempleado());
+                            response.sendRedirect("vendedor/index.jsp");
+                        }else{
+                             response.sendRedirect("admin/index.jsp");
+                        }
+                    }else{
+                        
+                    }                    
+                    
+                    
+                    break;
+                   
                case "CREATE":
                    
                    break;

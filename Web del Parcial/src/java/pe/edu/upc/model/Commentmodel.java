@@ -13,28 +13,43 @@ public class Commentmodel implements Imodel<Comment> {
     IComment dao= Factory.getFactory(FactoryType.MYSQL_FACTORY).getComment();
     
     @Override
-    public String Register(Comment t) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String Register(Comment t) throws SQLException 
+    {
+        return dao.create(t);
     }
 
     @Override
-    public String Update(Comment t) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String Update(Comment t) throws SQLException 
+    {
+        return dao.create(t);
     }
 
     @Override
-    public String Delete(int id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String Delete(int id) throws SQLException 
+    {
+        return dao.delete(id);
     }
 
     @Override
-    public Comment Get(int id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Comment Get(int id) throws SQLException 
+    {
+        return dao.read(id);
     }
 
     @Override
-    public List<Comment> GetList() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Comment> GetList() throws SQLException 
+    {
+        return dao.getAll();
+    }
+    
+    public List<Comment> getAllcommentsbyarticle(int idarticle) throws SQLException 
+    {
+        return dao.getAllcommentsbyarticle(idarticle);
+    }
+    
+    public List<Comment> getAllcommentsbyuser(int iduser) throws SQLException 
+    {
+        return dao.getAllcommentsbyuser(iduser);
     }
     
 }
