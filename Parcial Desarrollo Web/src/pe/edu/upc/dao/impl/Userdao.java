@@ -1,3 +1,4 @@
+
 package pe.edu.upc.dao.impl;
 
 import java.sql.Connection;
@@ -131,18 +132,39 @@ public class Userdao implements IUser
     @Override
     public List<User> getAll() throws SQLException 
     {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public User login(User o) throws SQLException 
+    {
+        User user = null;
+
         con = Database.getConnection();
-        String sqlst= "SELECT iduser, username, email, password, create_time, name, lastname, score, steamid, facebookid, profile_info FROM user";
-        List<User> lista= new ArrayList<>();
-        User oUser ;
-        PreparedStatement p = con.prepareStatement(sqlst);
-        ResultSet rs = p.executeQuery();
-        while (rs.next()) {            
-            oUser = new User();
-            oUser.setIduser(rs.getInt("iduser"));
-            lista.add(oUser);
+        PreparedStatement prepare = con.prepareStatement("SELECT username,mail,password,create_time,name,lastname,score,steamid,facebookid,profileinfo  FROM User WHERE username =? and password=?");
+        prepare.setString(1, o.getUsername());
+        prepare.setString(2, o.getPassword());
+        ResultSet rs = prepare.executeQuery();
+        if (rs.next()) 
+        {
+            user = new User();
+            
+            user.setIduser(rs.getInt("iduser"));
+            user.setUsername(rs.getString("username"));
+            user.setEmail(rs.getString("email"));
+            user.setPassword(rs.getString("iduser"));
+            java.sql.Date createDate = new java.sql.Date(rs.getDate("create_time").getTime());
+            user.setCreate_time(createDate);
+            user.setName(rs.getString("name"));
+            user.setLastname(rs.getString("lastname"));
+            user.setScore(rs.getInt("score"));
+            user.setSteamid(rs.getString("steamid"));
+            user.setFacebookid(rs.getString("facebookid"));
+            user.setProfileinfo(rs.getString("profileinfo"));
+
         }
-        return lista;
+        
+        return user;
     }
     
 }
