@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,9 +21,9 @@
 				<input name="email" placeholder="ejemplo@dot.com"type="text" />
 				<label>Usuario:</label>
 				<input name="usuario" placeholder="por ejemplo: eltragasable"type="text" />
-				<label>Contraseña:</label>
+				<label>ContraseÃ±a:</label>
 				<input name="contrasena" type="password" />
-				<label>Repita contraseña:</label>
+				<label>Repita contraseÃ±a:</label>
 				<input name="contrasena2" type="password" />
 				<div name="div_errores">
 				</div>

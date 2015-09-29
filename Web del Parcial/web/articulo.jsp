@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es" onClick="checkClick(event)">
 <head>
@@ -58,21 +59,21 @@
 				<nav id="menu">
 					<ul>
 						<li><a href="editar_perfil.html">Perfil</a></li>
-						<li><a href="ver_articulos.html">Adm. de Artículos</a></li>
-						<li><a href="crear_articulo.html">Crear Artículo</a></li>
+						<li><a href="ver_articulos.html">Adm. de ArtÃ­culos</a></li>
+						<li><a href="crear_articulo.html">Crear ArtÃ­culo</a></li>
 						<li><a href="faq.html">FAQ</a></li>
 						<li><a href="ingresar.html">Salir</a></li>
 					</ul>
 				</nav>
 			</div>
 
-			<h1>Artículo #12364</h1>
+			<h1>ArtÃ­culo #12364</h1>
 		</article>
 	</section>
 
 	<section>
 		<article id="articulo">
-			<p><h2>Grandioso título Nº12364</h2></p>
+			<p><h2>Grandioso tÃ­tulo NÂº12364</h2></p>
 			<p>
 				<table>
 					<tr>
