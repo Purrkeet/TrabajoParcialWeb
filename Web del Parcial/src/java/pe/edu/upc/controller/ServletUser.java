@@ -27,32 +27,31 @@ public class ServletUser extends HttpServlet
         Usermodel umodel = new Usermodel();
         User user = new User();
         List<User> lista = new ArrayList<>();
+        String login, password;
         
         try (PrintWriter out = response.getWriter()) 
         {
            switch(peticion)
            {
                case "login":
-                    login = request.getParameter("login");
-                    password = request.getParameter("password");
+                   
+                    login = request.getParameter("usuario");
+                    password = request.getParameter("contraseÃ±a");
+                                     
+                    user.setUsername(login);
+                    user.setPassword(password);
                     
-                    //TODO: Completar el codigo                    
-                    e.setLogin(login);
-                    e.setPassword(password);
+                    user = umodel.login(user);
                     
-                    e=emodel.Autenticarempleado(e);
-                    if(e!=null){
-                        if(e.getRol().equals("vendedor")){
-                            request.getSession().setAttribute("idempleado", e.getIdempleado());
-                            response.sendRedirect("vendedor/index.jsp");
-                        }else{
-                             response.sendRedirect("admin/index.jsp");
-                        }
-                    }else{
-                        
-                    }                    
+                    if(user != null)
+                    {  
+                       response.sendRedirect("home.jsp");
+                    }
                     
-                    
+                    else
+                    {
+                        response.sendRedirect("faq.jsp");
+                    }  
                     break;
                    
                case "CREATE":
