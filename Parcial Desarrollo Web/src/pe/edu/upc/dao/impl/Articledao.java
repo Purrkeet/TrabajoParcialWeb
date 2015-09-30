@@ -40,11 +40,11 @@ public class Articledao implements IArticle {
 
             con.commit();
             con.close();
-            return "Registro area ok";
+            return "Registro articulo ok";
         } else {
             con.rollback();
             con.close();
-            return "Error registro area ";
+            return "Error articulo area ";
         }
         
     }
@@ -72,7 +72,7 @@ public class Articledao implements IArticle {
          {  
             con.commit();
             con.close();
-            return "Article actualizada correctamente";
+            return "articulo actualizada correctamente";
          } 
          else 
          {        
