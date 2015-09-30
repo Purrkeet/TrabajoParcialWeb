@@ -73,7 +73,8 @@
 
 	<section>
 		<article id="editar_perfil">
-			<form method="POST" action="editar_perfil.html">
+			<form method="POST" action="ServletUser">
+                            <input type="hidden" name="peticion" value="UPDATE" />
 				<ul>
 					<li>
 						<label>Correo electrÃ³nico:</label>

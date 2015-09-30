@@ -29,14 +29,15 @@
 	<section>
 		<h1>Ingresar</h1>
 		<article>
-			<form method="POST" action="ingresar.html">
-				<label>Usuario:</label>
-				<input name="usuario" type="text" />
-				<label>ContraseÃ±a:</label>
-				<input name="contraseÃ±a" type="text" />
-				<div name="div_errores">
-				</div>
-				<input name="acceder" type="submit" value="Acceder" />
+			<form method="POST" action="ServletUser">
+                            <input type="hidden" name="peticion" value="login" />
+                            <label>Usuario:</label>
+                            <input name="usuario" type="text" />
+                            <label>ContraseÃ±a:</label>
+                            <input name="contraseÃ±a" type="text" />
+                            <div name="div_errores">
+                            </div>
+                            <input name="acceder" type="submit" value="Acceder" />
 			</form>
 		</article>
 	</section>

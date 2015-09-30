@@ -68,9 +68,10 @@
 			</div>
 			<div id="perfil">
 				<h1>Home</h1>
-				<form method="GET" action="buscar_articulo.html">
-					<input name="busqueda" type="text" placeholder="Ingrese aquÃ­ el contenido a buscar ..." />
-					<input type="submit" value="Buscar" />
+				<form method="POST" action="ServletArticle">
+                                    <input type="hidden" name="peticion" value="GETAllBYTITLE" />
+                                    <input name="busqueda" type="text" placeholder="Ingrese aquÃ­ el contenido a buscar ..." />
+                                    <input type="submit" value="Buscar" />
 				</form>
 			</div>
 		</article>

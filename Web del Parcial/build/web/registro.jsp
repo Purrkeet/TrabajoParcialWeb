@@ -16,20 +16,21 @@
 	<section>
 		<h1>Registro de nueva cuenta</h1>
 		<article>
-			<form method="POST" action="registro.html">
-				<label>Email:</label>
-				<input name="email" placeholder="ejemplo@dot.com"type="text" />
-				<label>Usuario:</label>
-				<input name="usuario" placeholder="por ejemplo: eltragasable"type="text" />
-				<label>ContraseÃ±a:</label>
-				<input name="contrasena" type="password" />
-				<label>Repita contraseÃ±a:</label>
-				<input name="contrasena2" type="password" />
-				<div name="div_errores">
-				</div>
-				<label>Descifre el captcha:<br>1+1:</label>
-				<input name="captcha" placeholder="resuelva la operacion"type="text" />
-				<input name="Registrar" type="submit" value="Registrar" />
+			<form method="POST" action="ServletUser">
+                            <input type="hidden" name="peticion" value="CREATE" />
+                            <label>Email:</label>
+                            <input name="email" placeholder="ejemplo@dot.com"type="text" />
+                            <label>Usuario:</label>
+                            <input name="usuario" placeholder="por ejemplo: eltragasable"type="text" />
+                            <label>ContraseÃ±a:</label>
+                            <input name="contrasena" type="password" />
+                            <label>Repita contraseÃ±a:</label>
+                            <input name="contrasena2" type="password" />
+                            <div name="div_errores">
+                            </div>
+                            <label>Descifre el captcha:<br>1+1:</label>
+                            <input name="captcha" placeholder="resuelva la operacion"type="text" />
+                            <input name="Registrar" type="submit" value="Registrar" />
 			</form>
 		</article>
 	</section>

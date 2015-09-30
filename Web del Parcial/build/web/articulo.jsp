@@ -110,12 +110,14 @@
 	<section>
 		<article id="publicar_comentario">
 			<h2>Publicar nuevo comentario</h2>
-			<form method="POST" action="publicar_comentario.html">
-				<textarea name="comentario">
-				</textarea>
-				<p>
-					<input type="submit" value="Publicar" />
-				</p>
+			<form method="POST" action="ServletComment">
+                            <input type="hidden" name="peticion" value="CREATE" />
+                            <input type="hidden" name="idarticulo" value="idarticulo">
+                            <textarea name="comentario">
+                            </textarea>
+                            <p>
+                            	<input type="submit" value="Publicar" />
+                            </p>
 			</form>
 		</article>
 

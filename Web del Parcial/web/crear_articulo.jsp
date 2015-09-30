@@ -81,12 +81,13 @@
 
 	<section>
 		<article class="editor">
-			<form method="POST" action="crear_articulo.html">
-				<textarea name="articulo" id="editor_html">
-				</textarea>
-				<label>Etiquetas:</label>
-				<input name="etiquetas" type="text" />
-				<input type="submit" onClick="" value="Publicar" />			
+			<form method="POST" action="ServletArticle">
+                            <input type="hidden" name="peticion" value="CREATE" />
+                            <textarea name="articulo" id="editor_html">
+                            </textarea>
+                            <label>Etiquetas:</label>
+                            <input name="etiquetas" type="text" />
+                            <input type="submit" onClick="" value="Publicar" />			
 			</form>
 		</article>
 	</section>
