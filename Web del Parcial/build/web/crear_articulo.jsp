@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es" onClick="checkClick(event)">
 <head>
@@ -66,26 +67,27 @@
 				<nav id="menu">
 					<ul>
 						<li><a href="editar_perfil.html">Perfil</a></li>
-						<li><a href="ver_articulos.html">Adm. de Artículos</a></li>
-						<li><a href="crear_articulo.html">Crear Artículo</a></li>
+						<li><a href="ver_articulos.html">Adm. de ArtÃ­culos</a></li>
+						<li><a href="crear_articulo.html">Crear ArtÃ­culo</a></li>
 						<li><a href="faq.html">FAQ</a></li>
 						<li><a href="ingresar.html">Salir</a></li>
 					</ul>
 				</nav>
 			</div>
 
-			<h1>Crear Artículo</h1>
+			<h1>Crear ArtÃ­culo</h1>
 		</article>
 	</section>
 
 	<section>
 		<article class="editor">
-			<form method="POST" action="crear_articulo.html">
-				<textarea name="articulo" id="editor_html">
-				</textarea>
-				<label>Etiquetas:</label>
-				<input name="etiquetas" type="text" />
-				<input type="submit" onClick="" value="Publicar" />			
+			<form method="POST" action="ServletArticle">
+                            <input type="hidden" name="peticion" value="CREATE" />
+                            <textarea name="articulo" id="editor_html">
+                            </textarea>
+                            <label>Etiquetas:</label>
+                            <input name="etiquetas" type="text" />
+                            <input type="submit" onClick="" value="Publicar" />			
 			</form>
 		</article>
 	</section>

@@ -2,70 +2,84 @@ package pe.edu.upc.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import pe.edu.upc.entity.Comment;
+import pe.edu.upc.model.Commentmodel;
 
 @WebServlet(name = "ServletComment", urlPatterns = {"/ServletComment"})
-public class ServletComment extends HttpServlet {
+public class ServletComment extends HttpServlet 
+{
 
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException 
+    {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ServletComment</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletComment at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        
+        String peticion = request.getParameter("peticion");
+        Commentmodel cmodel = new Commentmodel();
+        Comment comment = new Comment();
+        List<Comment> lista = new ArrayList<>();
+        
+        try (PrintWriter out = response.getWriter()) 
+        {
+            switch(peticion)
+           {
+               case "CREATE":
+                   
+                   break;
+               case "UPDATE":
+                   break;
+               case "DELETE":
+                   break;
+               case "GETAllBYARTICLE":
+                   break;
+               case "GETAllBYUSER":
+                   break;
+           }
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
+    {
+        try 
+        {
+            processRequest(request, response);
+        } 
+        
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(ServletArticle.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
+        try 
+        {
+            processRequest(request, response);
+        } 
+        
+        catch (SQLException ex)
+        {
+            Logger.getLogger(ServletArticle.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
-    public String getServletInfo() {
+    public String getServletInfo()
+    {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

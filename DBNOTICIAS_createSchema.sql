@@ -24,7 +24,7 @@ USE `dbnoticias` ;
 DROP TABLE IF EXISTS `dbnoticias`.`user` ;
 
 CREATE TABLE IF NOT EXISTS `dbnoticias`.`user` (
-  `iduser` INT NOT NULL,
+  `iduser` INT NOT NULL AUTO_INCREMENT,
   `username` varchar(16) NOT NULL,
   `email` varchar(255) NULL,
   `password` varchar(32) NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `dbnoticias`.`user` (
 DROP TABLE IF EXISTS `dbnoticias`.`article` ;
 
 CREATE TABLE IF NOT EXISTS `dbnoticias`.`article` (
-  `idarticle` INT NOT NULL,
+  `idarticle` INT NOT NULL AUTO_INCREMENT,
   `score` INT NULL,
   `text` TEXT NULL,
   `numviews` INT NULL,
@@ -67,7 +67,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `dbnoticias`.`comment` ;
 
 CREATE TABLE IF NOT EXISTS `dbnoticias`.`comment` (
-  `idcomment` INT NOT NULL,
+  `idcomment` INT NOT NULL AUTO_INCREMENT,
   `TEXT` TEXT NULL,
   `score` INT NULL,
   `article_idarticle` INT NOT NULL,
@@ -94,7 +94,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `dbnoticias`.`category` ;
 
 CREATE TABLE IF NOT EXISTS `dbnoticias`.`category` (
-  `idcategory` INT NOT NULL,
+  `idcategory` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   PRIMARY KEY (`idcategory`))
 ENGINE = InnoDB;
@@ -106,7 +106,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `dbnoticias`.`topic_category` ;
 
 CREATE TABLE IF NOT EXISTS `dbnoticias`.`topic_category` (
-  `idtopic_category` INT NOT NULL,
+  `idtopic_category` INT NOT NULL AUTO_INCREMENT,
   `articleid` INT NULL,
   PRIMARY KEY (`idtopic_category`),
   INDEX `fk_article_idx` (`articleid` ASC),
@@ -118,32 +118,6 @@ CREATE TABLE IF NOT EXISTS `dbnoticias`.`topic_category` (
   CONSTRAINT `fk_article`
     FOREIGN KEY (`articleid`)
     REFERENCES `dbnoticias`.`article` (`idarticle`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
-
-
--- -----------------------------------------------------
--- Table `dbnoticias`.`comment_has_comment`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `dbnoticias`.`comment_has_comment` ;
-
-CREATE TABLE IF NOT EXISTS `dbnoticias`.`comment_has_comment` (
-  `comment_idcomment` INT NOT NULL,
-  `comment_idcomment1` INT NOT NULL,
-  PRIMARY KEY (`comment_idcomment`, `comment_idcomment1`),
-  INDEX `fk_comment_has_comment_comment2_idx` (`comment_idcomment1` ASC),
-  INDEX `fk_comment_has_comment_comment1_idx` (`comment_idcomment` ASC),
-  CONSTRAINT `fk_comment_has_comment_comment1`
-    FOREIGN KEY (`comment_idcomment`)
-    REFERENCES `dbnoticias`.`comment` (`idcomment`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_comment_has_comment_comment2`
-    FOREIGN KEY (`comment_idcomment1`)
-    REFERENCES `dbnoticias`.`comment` (`idcomment`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

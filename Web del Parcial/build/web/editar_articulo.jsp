@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es" onClick="checkClick(event)">
 <head>
@@ -5,13 +6,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1">
 
 	<meta name="author" content="Lucking">
-	<meta name="description" content="editar_perfil.html">
-	<title>editar_perfil.html</title>
+	<meta name="description" content="editar_articulo.html">
+	<title>editar_articulo.html</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/comun_estilos.css">
-	<link rel="stylesheet" href="css/editar_perfil_estilos.css">
+	<link rel="stylesheet" href="css/editar_articulo_estilos.css">
 	<script src="css/modernizr.custom.24970.js"></script>
-
+	<!--El siguiente script es el editor TinyMCE hecho en javascript-->
+	<script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
+	<script type="text/javascript">
+		tinymce.init({
+			plugins: "image media code link paste preview textcolor table wordcount colorpicker visualchars",
+            selector: "#editor_html"
+        });
+	</script>
+	<!--Fin de comentario-->
 	<script>
 		function activar_navegacion() {
 			document.getElementById("menu").style.visibility = "visible";
@@ -58,44 +67,30 @@
 				<nav id="menu">
 					<ul>
 						<li><a href="editar_perfil.html">Perfil</a></li>
-						<li><a href="ver_articulos.html">Adm. de Artículos</a></li>
-						<li><a href="crear_articulo.html">Crear Artículo</a></li>
+						<li><a href="ver_articulos.html">Adm. de ArtÃ­culos</a></li>
+						<li><a href="crear_articulo.html">Crear ArtÃ­culo</a></li>
 						<li><a href="faq.html">FAQ</a></li>
 						<li><a href="ingresar.html">Salir</a></li>
 					</ul>
 				</nav>
 			</div>
 
-			<h1>Editar Perfil</h1>
+			<h1>Editar ArtÃ­culo</h1>
 		</article>
 	</section>
 
 	<section>
-		<article id="editar_perfil">
-			<form method="POST" action="editar_perfil.html">
-				<ul>
-					<li>
-						<label>Correo electrónico:</label>
-						<input name="correo" type="text" placeholder="Ingrese su nuevo correo electrónico" />
-					</li>
-					<li>
-						<label>Imagen de perfil:</label>
-						<input name="imagen_perfil" type="file" />
-					</li>
-					<li>
-						<label>Contraseña:</label>
-						<input name="contraseña" type="password" placeholder="Ingresa su nueva contraseña" />
-					</li>
-					<li>
-						<label>Repetir contraseña:</label>
-						<input name="re_contraseña" type="password" placeholder="Reingrese su nueva contraseña" />
-					</li>
-					<li>
-						<input type="submit" value="Guardar cambios" />
-					</li>
-				</ul>
+		<article class="editor">
+			<form method="POST" action="ServletArticle">
+                            <input type="hidden" name="peticion" value="UPDATE" />
+                            <textarea name="articulo" id="editor_html">
+                            </textarea>
+                            <label>Etiquetas:</label>
+                            <input name="etiquetas" type="text" />
+                            <input type="submit" onClick="" value="Publicar" />			
 			</form>
 		</article>
 	</section>
-</body>
+
+	</body>
 </html>

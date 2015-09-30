@@ -16,80 +16,92 @@ import pe.edu.upc.entity.User;
 import pe.edu.upc.model.Usermodel;
 
 @WebServlet(name = "ServletUser", urlPatterns = {"/ServletUser"})
-public class ServletUser extends HttpServlet {
+public class ServletUser extends HttpServlet 
+{
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException 
+    {
         response.setContentType("text/html;charset=UTF-8");
+        
         String peticion = request.getParameter("peticion");
-        Usermodel amodel = new Usermodel();
-        User u= new User();
+        Usermodel umodel = new Usermodel();
+        User user = new User();
         List<User> lista = new ArrayList<>();
         
-        
-        
-        try (PrintWriter out = response.getWriter()) {
-           switch(peticion){
-               case "LIST":
+        try (PrintWriter out = response.getWriter()) 
+        {
+           switch(peticion)
+           {
+               case "login":
+                    login = request.getParameter("login");
+                    password = request.getParameter("password");
+                    
+                    //TODO: Completar el codigo                    
+                    e.setLogin(login);
+                    e.setPassword(password);
+                    
+                    e=emodel.Autenticarempleado(e);
+                    if(e!=null){
+                        if(e.getRol().equals("vendedor")){
+                            request.getSession().setAttribute("idempleado", e.getIdempleado());
+                            response.sendRedirect("vendedor/index.jsp");
+                        }else{
+                             response.sendRedirect("admin/index.jsp");
+                        }
+                    }else{
+                        
+                    }                    
+                    
+                    
+                    break;
+                   
+               case "CREATE":
                    
                    break;
-               case "INS":
+               case "READ":
                    break;
-               case "EDIT":
+               case "UPDATE":
                    break;
-               case "UPD":
+               case "DELETE":
                    break;
-               case "DEL":
+               case "GETAll":
                    break;
            }
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException  {
-        try {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
+    {
+        try 
+        {
             processRequest(request, response);
-        } catch (SQLException ex) {
+        } 
+        
+        catch (SQLException ex) 
+        {
             Logger.getLogger(ServletUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
+        try 
+        {
             processRequest(request, response);
-        } catch (SQLException ex) {
+        } 
+        
+        catch (SQLException ex)
+        {
             Logger.getLogger(ServletUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
-    public String getServletInfo() {
+    public String getServletInfo()
+    {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

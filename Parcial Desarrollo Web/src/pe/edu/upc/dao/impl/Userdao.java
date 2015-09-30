@@ -1,3 +1,4 @@
+
 package pe.edu.upc.dao.impl;
 
 import java.sql.Connection;
@@ -21,21 +22,23 @@ public class Userdao implements IUser
         con = Database.getConnection();
         con.setAutoCommit(false);
  
-        String insert = "INSERT INTO User (username,mail,password,create_time,name,lastname,score,steamid,facebookid,profileinfo) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        String insert = "INSERT INTO User (username,email,password,create_time,name,lastname,score,steamid,facebookid,profile_info) VALUES(?,?,?,?,?,?,?,?,?,?)";
         
         PreparedStatement prepare = con.prepareStatement(insert, PreparedStatement.RETURN_GENERATED_KEYS);
         
         prepare.setString(1, o.getUsername());
         prepare.setString(2, o.getEmail());
         prepare.setString(3, o.getPassword());
-        java.sql.Date createDate = new java.sql.Date(o.getCreate_time().getTime());
-        prepare.setDate(4,createDate);
+        java.util.Date createDate = new java.util.Date();//o.getCreate_time().getTime());
+        java.sql.Date sqlDate = new java.sql.Date(createDate.getTime());
+        prepare.setDate(4, sqlDate);
         prepare.setString(5, o.getName());
         prepare.setString(6, o.getLastname());
-        prepare.setInt(7, o.getScore());
-        prepare.setString(8, o.getSteamid());
-        prepare.setString(9, o.getFacebookid());
-        prepare.setString(10, o.getProfileinfo());
+        prepare.setInt(7, 0);
+        //por defecto no se insertan los demas
+        prepare.setString(8, "");//o.getSteamid());
+        prepare.setString(9, "");//o.getFacebookid());
+        prepare.setString(10, "");//o.getProfileinfo());
         
         rpta = prepare.executeUpdate();
 
@@ -130,6 +133,38 @@ public class Userdao implements IUser
     public List<User> getAll() throws SQLException 
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public User login(User o) throws SQLException 
+    {
+        User user = null;
+
+        con = Database.getConnection();
+        PreparedStatement prepare = con.prepareStatement("SELECT username,mail,password,create_time,name,lastname,score,steamid,facebookid,profileinfo  FROM User WHERE username =? and password=?");
+        prepare.setString(1, o.getUsername());
+        prepare.setString(2, o.getPassword());
+        ResultSet rs = prepare.executeQuery();
+        if (rs.next()) 
+        {
+            user = new User();
+            
+            user.setIduser(rs.getInt("iduser"));
+            user.setUsername(rs.getString("username"));
+            user.setEmail(rs.getString("email"));
+            user.setPassword(rs.getString("iduser"));
+            java.sql.Date createDate = new java.sql.Date(rs.getDate("create_time").getTime());
+            user.setCreate_time(createDate);
+            user.setName(rs.getString("name"));
+            user.setLastname(rs.getString("lastname"));
+            user.setScore(rs.getInt("score"));
+            user.setSteamid(rs.getString("steamid"));
+            user.setFacebookid(rs.getString("facebookid"));
+            user.setProfileinfo(rs.getString("profileinfo"));
+
+        }
+        
+        return user;
     }
     
 }

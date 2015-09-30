@@ -10,33 +10,48 @@ import pe.edu.upc.factory.FactoryType;
 
 public class Articlemodel implements Imodel<Article>{
     
-    IArticle dao  = Factory.getFactory(FactoryType.MYSQL_FACTORY).getArticle();
-            
+    IArticle dao  = Factory.getFactory(FactoryType.MYSQL_FACTORY).getArticle();  
             
     @Override
-    public String Register(Article t) throws SQLException {
+    public String Register(Article t) throws SQLException 
+    {
         return dao.create(t);
     }
 
     @Override
-    public String Update(Article t) throws SQLException {
+    public String Update(Article t) throws SQLException 
+    {
         return dao.update(t);
     }
 
     @Override
-    public String Delete(int id) throws SQLException {
+    public String Delete(int id) throws SQLException 
+    {
         return dao.delete(id);
     }
 
     @Override
-    public Article Get(int id) throws SQLException {
+    public Article Get(int id) throws SQLException 
+    {
         return dao.read(id);
     }
 
     @Override
-    public List<Article> GetList() throws SQLException {
+    public List<Article> GetList() throws SQLException 
+    {
         return dao.getAll();
     }
+    
+    public List<Article> getAllarticlesbyuser (int iduser) throws SQLException
+    {
+        return dao.getAllarticlesbyuser(iduser);
+    }
+    
+    public List<Article> getAllarticlesbytitle (int idtitle) throws SQLException
+    {
+        return dao.getAllarticlesbyuser(idtitle);
+    }
+    
+    
 
-  
 }

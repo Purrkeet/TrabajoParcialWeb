@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es" onClick="checkClick(event)">
 <head>
@@ -5,11 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1">
 
 	<meta name="author" content="Lucking">
-	<meta name="description" content="articulo.html">
-	<title>articulo.html</title>
+	<meta name="description" content="editar_perfil.html">
+	<title>editar_perfil.html</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/comun_estilos.css">
-	<link rel="stylesheet" href="css/articulo_estilos.css">
+	<link rel="stylesheet" href="css/editar_perfil_estilos.css">
 	<script src="css/modernizr.custom.24970.js"></script>
 
 	<script>
@@ -58,47 +59,45 @@
 				<nav id="menu">
 					<ul>
 						<li><a href="editar_perfil.html">Perfil</a></li>
-						<li><a href="ver_articulos.html">Adm. de Artículos</a></li>
-						<li><a href="crear_articulo.html">Crear Artículo</a></li>
+						<li><a href="ver_articulos.html">Adm. de ArtÃ­culos</a></li>
+						<li><a href="crear_articulo.html">Crear ArtÃ­culo</a></li>
 						<li><a href="faq.html">FAQ</a></li>
 						<li><a href="ingresar.html">Salir</a></li>
 					</ul>
 				</nav>
 			</div>
 
-			<h1>Artículo #12364</h1>
+			<h1>Editar Perfil</h1>
 		</article>
 	</section>
 
 	<section>
-		<article id="articulo">
-			<p><h2>Grandioso título Nº12364</h2></p>
-			<p>
-				<table>
-					<tr>
-						<td><div class="num_upvote">1000</div></td>
-						<td rowspan="2"><div class="updown"><a href="#"><img src="imagenes/upvote.png" /></a><a href="#"><img src="imagenes/downvote.png" /></a></div></td>
-					</tr>
-					<tr>
-						<td><div class="num_downvote">186</div></td>
-					</tr>
-				</table>
-			</p>
-			<p><a href="articulo.html">Retornar al articulo</a></p>
-			<div id="creador">
-<img src="imagenes/stats.gif" alt="estadisticas">
-			<p>Creado por: Lucking</p>
-
-					
-			
-			
-				
-				</div>
-			<div id="tags"><p>Tags: Doto 2, Lol of Legends, Pay 2 Win, Gaben PLS</p></div>
+		<article id="editar_perfil">
+			<form method="POST" action="ServletUser">
+                            <input type="hidden" name="peticion" value="UPDATE" />
+				<ul>
+					<li>
+						<label>Correo electrÃ³nico:</label>
+						<input name="correo" type="text" placeholder="Ingrese su nuevo correo electrÃ³nico" />
+					</li>
+					<li>
+						<label>Imagen de perfil:</label>
+						<input name="imagen_perfil" type="file" />
+					</li>
+					<li>
+						<label>ContraseÃ±a:</label>
+						<input name="contraseÃ±a" type="password" placeholder="Ingresa su nueva contraseÃ±a" />
+					</li>
+					<li>
+						<label>Repetir contraseÃ±a:</label>
+						<input name="re_contraseÃ±a" type="password" placeholder="Reingrese su nueva contraseÃ±a" />
+					</li>
+					<li>
+						<input type="submit" value="Guardar cambios" />
+					</li>
+				</ul>
+			</form>
 		</article>
 	</section>
-
-	<div id="espaciado">
-	</div>
 </body>
 </html>
