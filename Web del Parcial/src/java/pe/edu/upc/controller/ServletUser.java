@@ -25,9 +25,9 @@ public class ServletUser extends HttpServlet
         
         String peticion = request.getParameter("peticion");
         Usermodel umodel = new Usermodel();
-        User user = new User();
+        User e = new User();
         List<User> lista = new ArrayList<>();
-        
+        String login, password;
         try (PrintWriter out = response.getWriter()) 
         {
            switch(peticion)
@@ -37,17 +37,17 @@ public class ServletUser extends HttpServlet
                     password = request.getParameter("password");
                     
                     //TODO: Completar el codigo                    
-                    e.setLogin(login);
+                    e.setUsername(login);
                     e.setPassword(password);
                     
-                    e=emodel.Autenticarempleado(e);
+                    e=umodel.login(e);
                     if(e!=null){
-                        if(e.getRol().equals("vendedor")){
-                            request.getSession().setAttribute("idempleado", e.getIdempleado());
-                            response.sendRedirect("vendedor/index.jsp");
-                        }else{
-                             response.sendRedirect("admin/index.jsp");
-                        }
+                        //if(e.getRol().equals("vendedor")){
+                            request.getSession().setAttribute("idusuario", e.getIduser());
+                            response.sendRedirect("index.jsp");
+                        //}else{
+                          //   response.sendRedirect("admin/index.jsp");
+                        //}
                     }else{
                         
                     }                    
