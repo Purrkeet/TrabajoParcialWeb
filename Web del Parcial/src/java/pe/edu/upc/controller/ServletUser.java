@@ -44,7 +44,7 @@ public class ServletUser extends HttpServlet
                     if(e!=null){
                         //if(e.getRol().equals("vendedor")){
                             request.getSession().setAttribute("idusuario", e.getIduser());
-                            response.sendRedirect("index.jsp");
+                            response.sendRedirect("home.jsp");
                         //}else{
                           //   response.sendRedirect("admin/index.jsp");
                         //}
