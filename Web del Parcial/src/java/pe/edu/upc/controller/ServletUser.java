@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import pe.edu.upc.entity.User;
 import pe.edu.upc.model.Usermodel;
 
@@ -30,6 +31,7 @@ public class ServletUser extends HttpServlet
         String login, password = null, password2 = null, username = null, email = null, name = null, lastname = null;
          String steamid = null, facebookid = null, Descripcion = null;
          
+         HttpSession session=request.getSession();
         try (PrintWriter out = response.getWriter()) 
         {
            switch(peticion)
@@ -48,6 +50,7 @@ public class ServletUser extends HttpServlet
                     {  
                        user = umodel.Get(user.getIduser());
                        request.getSession().setAttribute("usuario",user);
+                       
                        response.sendRedirect("home.jsp");
                     }
                     

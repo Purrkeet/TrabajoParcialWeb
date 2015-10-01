@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="es" onClick="checkClick(event)">
 <head>
@@ -67,7 +68,7 @@
 				</nav>
 			</div>
 			<div id="perfil">
-				<h1>Home</h1>
+				<h1>Home <c:out value="${usuario.name}" /></h1>
 				<form method="POST" action="ServletArticle">
                                     <input type="hidden" name="peticion" value="GETAllBYTITLE" />
                                     <input name="busqueda" type="text" placeholder="Ingrese aquÃ­ el contenido a buscar ..." />
@@ -93,7 +94,7 @@
 						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 					</p>
 					<p>
-						<center><a href="articulo.jsp">Ver mÃ¡s ...</a></center>
+						<center><a href="articulo.jsp" />">Ver mÃ¡s ...</a></center>
 					</p>
 				</span>
 			</div>

@@ -56,6 +56,7 @@ public class ServletComment extends HttpServlet
                    comment.setArticle(art);
                    comment.setUser(usr);
                    System.out.println(cmodel.Register(comment));
+                   response.sendRedirect("articulo.jsp");
                            break;
                case "UPDATE":
                    break;

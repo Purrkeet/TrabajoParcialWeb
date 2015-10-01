@@ -44,7 +44,7 @@ public class ServletArticle extends HttpServlet
                     usuario = (User)request.getSession(false).getAttribute("usuario");
                     titulo_articulo = request.getParameter("titulo");
                     texto_articulo = request.getParameter("articulo");
-                  
+                  System.out.println(titulo_articulo);
                    if(usuario != null) 
                    {
                        article.setUser(usuario);

@@ -21,18 +21,19 @@ public class Articledao implements IArticle {
         int rpta, idarticulo;
         con = Database.getConnection();
         con.setAutoCommit(false);
-        String insert1 = "INSERT INTO article (numviews, score,text,user_iduser,ts_create,ts_update) " + "VALUES(?,?,?,?,?,?)";
+        String insert1 = "INSERT INTO article (numviews, title, score,text,user_iduser,ts_create,ts_update) " + "VALUES(?,?,?,?,?,?,?)";
         
 
         PreparedStatement prepare1 = con.prepareStatement(insert1);
         prepare1.setInt(1, o.getNumviews());
-        prepare1.setInt(2, o.getScore());
-        prepare1.setString(3, o.getText());
-        prepare1.setInt(4, o.getUser().getIduser());
+        prepare1.setString(2, o.getTitle());
+        prepare1.setInt(3, o.getScore());
+        prepare1.setString(4, o.getText());
+        prepare1.setInt(5, o.getUser().getIduser());
         //revisar - 
         Date dt = new Date(o.getCreate_time().getTime());
-        prepare1.setDate(5, dt);
         prepare1.setDate(6, dt);
+        prepare1.setDate(7, dt);
         rpta = prepare1.executeUpdate();
 
         if (rpta > 0) {
