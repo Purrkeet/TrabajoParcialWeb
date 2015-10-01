@@ -21,7 +21,7 @@ public class Articledao implements IArticle {
         int rpta, idarticulo;
         con = Database.getConnection();
         con.setAutoCommit(false);
-        String insert1 = "INSERT INTO Article (numviews, score,text,user_iduser,ts_create,ts_update) " + "VALUES(?,?,?,?,?,?)";
+        String insert1 = "INSERT INTO article (numviews, score,text,user_iduser,ts_create,ts_update) " + "VALUES(?,?,?,?,?,?)";
         
 
         PreparedStatement prepare1 = con.prepareStatement(insert1, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -36,9 +36,6 @@ public class Articledao implements IArticle {
         rpta = prepare1.executeUpdate();
 
         if (rpta > 0) {
-
-           
-
             con.commit();
             con.close();
             return "Registro articulo ok";
@@ -55,7 +52,7 @@ public class Articledao implements IArticle {
         int rpta;
         con = Database.getConnection();
         con.setAutoCommit(false);
-        String update = "UPDATE Article SET score=?,text=?,numviews=?,create_time=?"
+        String update = "UPDATE article SET score=?,text=?,numviews=?,create_time=?"
                        +"      update_time=?,user_iduser=? WHERE idarticle=?";
         PreparedStatement prepare = con.prepareStatement(update);
         prepare.setInt(1, o.getScore());
@@ -90,7 +87,7 @@ public class Articledao implements IArticle {
         int rpta;
         con = Database.getConnection();
         con.setAutoCommit(false);
-        String del = "DELETE FROM Article WHERE idarticle=?";                
+        String del = "DELETE FROM article WHERE idarticle=?";                
         PreparedStatement prepare = con.prepareStatement(del);        
         prepare.setInt(1, id);
         rpta = prepare.executeUpdate();
@@ -113,7 +110,7 @@ public class Articledao implements IArticle {
     public Article read(int id) throws SQLException {
                 con = Database.getConnection();
                 Article article = null ; 
-                String select = "SELECT idarticle,score,text,numviews,create_time,update_time FROM Article WHERE idarticle=?";
+                String select = "SELECT idarticle,score,text,numviews,create_time,update_time FROM article WHERE idarticle=?";
                 PreparedStatement prepare = con.prepareStatement(select);
                 prepare.setInt(1, id);
                 ResultSet rs = prepare.executeQuery();
@@ -136,7 +133,7 @@ public class Articledao implements IArticle {
         con = Database.getConnection();
         Article article = null;
         List<Article> lista = new ArrayList<>();
-        String select = "SELECT idarticle,score,text,numviews,create_time,update_time FROM Article ";
+        String select = "SELECT idarticle,score,text,numviews,create_time,update_time FROM article ";
         PreparedStatement prepare = con.prepareStatement(select);
         ResultSet rs = prepare.executeQuery();
         
@@ -163,7 +160,7 @@ public class Articledao implements IArticle {
             User user = null;  
             List<Article> lista = new ArrayList<>();
             //esta query esta mal , hay que corregirla
-            String select="SELECT c.idarticle, c.title, c.TEXT, c.score, c.iduser FROM Article a," + " User u WHERE u.iduser = c.iduser AND u.iduser = ?";                   
+            String select="SELECT c.idarticle, c.title, c.TEXT, c.score, c.iduser FROM article a," + " user u WHERE u.iduser = c.iduser AND u.iduser = ?";                   
             PreparedStatement prepare = con.prepareStatement(select);
             prepare.setInt(1, iduser);
             ResultSet rs = prepare.executeQuery();
@@ -191,7 +188,7 @@ public class Articledao implements IArticle {
             User user = null;  
             List<Article> lista = new ArrayList<>();
             //esta query esta mal , hay que corregirla
-            String select="SELECT c.idarticle, c.title, c.TEXT, c.score, c.iduser, c.idarticle FROM Article a WHERE a.title = ?";                   
+            String select="SELECT c.idarticle, c.title, c.TEXT, c.score, c.iduser, c.idarticle FROM article a WHERE a.title = ?";                   
             PreparedStatement prepare = con.prepareStatement(select);
             prepare.setString(1, titulo);
             ResultSet rs = prepare.executeQuery();

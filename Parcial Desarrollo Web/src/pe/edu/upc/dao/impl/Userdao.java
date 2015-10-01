@@ -152,6 +152,9 @@ public class Userdao implements IUser
             user.setLastname(rs.getString("lastname"));
             user.setScore(rs.getInt("score"));
             user.setSteamid(rs.getString("steamid"));
+            user.setFacebookid(rs.getString("facebookid"));
+            user.setProfileinfo(rs.getString("profile_info"));
+            
             lista.add(user);
         }
         

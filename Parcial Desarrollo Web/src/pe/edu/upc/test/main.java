@@ -61,14 +61,15 @@ public class main {
            /* uDao.create(oUser1);
             aDao.create(oArticle);
             cDao.create(oComm);*/
+           
             for ( User u : uDao.getAll()) {
-                u.toString();
+               System.out.println( u.toString());
             }
             for (Article a: aDao.getAll()) {
-                a.toString();
+                System.out.println( a.toString());
             }
             for (Comment c : cDao.getAll()) {
-                c.toString();
+                System.out.println( c.toString());
             }
             
         } catch (SQLException ex) {
