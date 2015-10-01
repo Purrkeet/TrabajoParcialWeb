@@ -2,6 +2,6 @@ package pe.edu.upc.factory;
 
 public enum FactoryType 
 {
-  MYSQL_FACTORY, ORACLE_FACTORY;
+  MYSQL_FACTORY;
 }
 

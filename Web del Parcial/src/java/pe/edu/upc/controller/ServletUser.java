@@ -25,34 +25,33 @@ public class ServletUser extends HttpServlet
         
         String peticion = request.getParameter("peticion");
         Usermodel umodel = new Usermodel();
-        User e = new User();
+        User user = new User();
         List<User> lista = new ArrayList<>();
         String login, password;
+        
         try (PrintWriter out = response.getWriter()) 
         {
            switch(peticion)
            {
                case "login":
-                    login = request.getParameter("login");
-                    password = request.getParameter("password");
+                   
+                    login = request.getParameter("usuario");
+                    password = request.getParameter("contrasena");
+                                     
+                    user.setUsername(login);
+                    user.setPassword(password);
                     
-                    //TODO: Completar el codigo                    
-                    e.setUsername(login);
-                    e.setPassword(password);
+                    user = umodel.login(user);
                     
-                    e=umodel.login(e);
-                    if(e!=null){
-                        //if(e.getRol().equals("vendedor")){
-                            request.getSession().setAttribute("idusuario", e.getIduser());
-                            response.sendRedirect("home.jsp");
-                        //}else{
-                          //   response.sendRedirect("admin/index.jsp");
-                        //}
-                    }else{
-                        response.sendRedirect("ingresar.jsp");
-                    }                    
+                    if(user != null)
+                    {  
+                       response.sendRedirect("home.jsp");
+                    }
                     
-                    
+                    else
+                    {
+                        response.sendRedirect("faq.jsp");
+                    }  
                     break;
                    
                case "CREATE":

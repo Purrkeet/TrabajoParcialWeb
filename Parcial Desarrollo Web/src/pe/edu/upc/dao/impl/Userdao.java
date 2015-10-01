@@ -141,7 +141,7 @@ public class Userdao implements IUser
         User user = null;
 
         con = Database.getConnection();
-        PreparedStatement prepare = con.prepareStatement("SELECT username,mail,password,create_time,name,lastname,score,steamid,facebookid,profileinfo  FROM User WHERE username =? and password=?");
+        PreparedStatement prepare = con.prepareStatement("SELECT iduser,username,password, FROM User WHERE username =? and password=?");
         prepare.setString(1, o.getUsername());
         prepare.setString(2, o.getPassword());
         ResultSet rs = prepare.executeQuery();
@@ -151,16 +151,7 @@ public class Userdao implements IUser
             
             user.setIduser(rs.getInt("iduser"));
             user.setUsername(rs.getString("username"));
-            user.setEmail(rs.getString("email"));
-            user.setPassword(rs.getString("iduser"));
-            java.sql.Date createDate = new java.sql.Date(rs.getDate("create_time").getTime());
-            user.setCreate_time(createDate);
-            user.setName(rs.getString("name"));
-            user.setLastname(rs.getString("lastname"));
-            user.setScore(rs.getInt("score"));
-            user.setSteamid(rs.getString("steamid"));
-            user.setFacebookid(rs.getString("facebookid"));
-            user.setProfileinfo(rs.getString("profileinfo"));
+            user.setPassword(rs.getString("password"));
 
         }
         
