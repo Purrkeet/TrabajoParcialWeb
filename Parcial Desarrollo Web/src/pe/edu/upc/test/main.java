@@ -6,6 +6,7 @@
 package pe.edu.upc.test;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pe.edu.upc.dao.IArticle;
@@ -61,16 +62,17 @@ public class main {
            /* uDao.create(oUser1);
             aDao.create(oArticle);
             cDao.create(oComm);*/
-           
-            for ( User u : uDao.getAll()) {
+            List<User> lU= uDao.getAll();
+            for ( User u :lU ) {
                System.out.println( u.toString());
             }
             for (Article a: aDao.getAll()) {
                 System.out.println( a.toString());
+                for (Comment c : cDao.getAllcommentsbyarticle(a.getIdarticle())) {
+                    System.out.println( c.toString());
+                }
             }
-            for (Comment c : cDao.getAll()) {
-                System.out.println( c.toString());
-            }
+            
             
         } catch (SQLException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);

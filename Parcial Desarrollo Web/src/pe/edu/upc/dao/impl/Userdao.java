@@ -60,7 +60,32 @@ public class Userdao implements IUser
     @Override
     public User read(int id) throws SQLException 
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      User user = null;
+
+        con = Database.getConnection();
+        PreparedStatement prepare = con.prepareStatement("SELECT iduser, username, email, password, create_time, name, lastname, score, steamid, facebookid, profile_info FROM user WHERE iduser=?");
+        prepare.setInt(1, id);
+        ResultSet rs = prepare.executeQuery();
+        
+        if (rs.next()) 
+        {
+            user = new User();
+            
+            user.setIduser(rs.getInt("iduser"));
+            user.setUsername(rs.getString("username"));
+            user.setPassword(rs.getString("password"));
+            user.setEmail(rs.getString("email"));
+            user.setCreate_time(rs.getDate("create_time"));
+            user.setName(rs.getString("name"));
+            user.setLastname(rs.getString("lastname"));
+            user.setScore(rs.getInt("score"));
+            user.setSteamid(rs.getString("steamid"));
+            user.setFacebookid(rs.getString("facebookid"));
+            user.setProfileinfo(rs.getString("profile_info"));
+        }
+        
+        return user;
+        
     }
 
     @Override
@@ -137,7 +162,7 @@ public class Userdao implements IUser
         
         ResultSet rs = prepare.executeQuery();
         List<User> lista=new ArrayList<>();
-        if (rs.next()) 
+        while (rs.next()) 
         {
             user = new User();
             

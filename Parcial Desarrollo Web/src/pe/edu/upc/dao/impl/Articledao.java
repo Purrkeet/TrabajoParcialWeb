@@ -52,17 +52,18 @@ public class Articledao implements IArticle {
         int rpta;
         con = Database.getConnection();
         con.setAutoCommit(false);
-        String update = "UPDATE article SET score=?,text=?,numviews=?,create_time=?"
-                       +"      update_time=?,user_iduser=? WHERE idarticle=?";
+        String update = "UPDATE article SET score=?,text=?,numviews=?,"
+                       +"      ts_update=?,user_iduser=? WHERE idarticle=?";
         PreparedStatement prepare = con.prepareStatement(update);
         prepare.setInt(1, o.getScore());
         prepare.setString(2, o.getText());
         prepare.setInt(3, o.getNumviews());
         java.sql.Date createDate = new java.sql.Date(o.getCreate_time().getTime());
-        prepare.setDate(4,createDate);
+        
         java.sql.Date updateDate = new java.sql.Date(o.getUpdate_time().getTime());
-        prepare.setDate(5,updateDate);
-        prepare.setInt(6,o.getUser().getIduser());
+        prepare.setDate(4,updateDate);
+        prepare.setInt(5,o.getUser().getIduser());
+        prepare.setInt(6, o.getIdarticle());
         rpta = prepare.executeUpdate();
         
         
@@ -133,7 +134,7 @@ public class Articledao implements IArticle {
         con = Database.getConnection();
         Article article = null;
         List<Article> lista = new ArrayList<>();
-        String select = "SELECT idarticle,score,text,numviews,create_time,update_time FROM article ";
+        String select = "SELECT idarticle,score,text,numviews,ts_create,ts_update FROM article ";
         PreparedStatement prepare = con.prepareStatement(select);
         ResultSet rs = prepare.executeQuery();
         
@@ -144,8 +145,8 @@ public class Articledao implements IArticle {
             article.setScore(rs.getInt("score"));
             article.setText(rs.getString("text"));
             article.setNumviews(rs.getInt("numviews"));
-            article.setCreate_time(rs.getDate("create_time"));
-            article.setUpdate_time(rs.getDate("update_time"));
+            article.setCreate_time(rs.getDate("ts_create"));
+            article.setUpdate_time(rs.getDate("ts_update"));
             lista.add(article);
         }
         
@@ -171,8 +172,8 @@ public class Articledao implements IArticle {
                 article.setScore(rs.getInt("score"));
                 article.setText(rs.getString("text"));
                 article.setNumviews(rs.getInt("numviews"));
-                article.setCreate_time(rs.getDate("create_time"));
-                article.setUpdate_time(rs.getDate("update_time"));
+                article.setCreate_time(rs.getDate("ts_create"));
+                article.setUpdate_time(rs.getDate("ts_update"));
                 lista.add(article);
             }
              
@@ -200,8 +201,8 @@ public class Articledao implements IArticle {
                 article.setText(rs.getString("text"));
                 article.setTitle(rs.getString("title"));
                 article.setNumviews(rs.getInt("numviews"));
-                article.setCreate_time(rs.getDate("create_time"));
-                article.setUpdate_time(rs.getDate("update_time"));
+                article.setCreate_time(rs.getDate("ts_create"));
+                article.setUpdate_time(rs.getDate("ts_update"));
                 lista.add(article);
             }
              
