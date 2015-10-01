@@ -32,7 +32,7 @@ public class ServletArticle extends HttpServlet
         List<Article> lista = new ArrayList<>();
         String titulo_articulo;
         String texto_articulo;
-        int idusuario;
+        User usuario = null;
         int idarticulo;
                 
         try (PrintWriter out = response.getWriter()) 
@@ -40,13 +40,13 @@ public class ServletArticle extends HttpServlet
            switch(peticion)
            {
                case "CREATE":
-                    idusuario = Integer.parseInt((String) request.getSession().getAttribute("idusuario"));
+                  
+                    usuario = (User)request.getSession(false).getAttribute("usuario");
                     titulo_articulo = request.getParameter("titulo");
                     texto_articulo = request.getParameter("articulo");
-                   
-                   Usermodel umodel = new Usermodel();
-                   User usuario = umodel.Get(idusuario);
-                   if(usuario != null) {
+                  
+                   if(usuario != null) 
+                   {
                        article.setUser(usuario);
                        article.setTitle(titulo_articulo);
                        article.setText(texto_articulo);
@@ -55,8 +55,9 @@ public class ServletArticle extends HttpServlet
                        response.sendRedirect("articulo.jsp");
                    }
                    else
+                   {
                        response.sendRedirect("articulo.jsp");
-                   
+                   }
                    
                    break;
                case "READ":
@@ -116,8 +117,9 @@ public class ServletArticle extends HttpServlet
                    
                    break;
                case "GETAllBYUSER":
-                   idusuario = Integer.parseInt((String) request.getSession().getAttribute("idusuario"));
-                   lista = amodel.getAllarticlesbyuser(idusuario);
+                  
+                   usuario = (User)request.getSession(false).getAttribute("usuario");
+                   lista = amodel.getAllarticlesbyuser(usuario.getIduser());
                    if(lista != null) {
                        request.getSession().setAttribute("lista_articulos", lista);
                        response.sendRedirect("ver_articulos.jsp");

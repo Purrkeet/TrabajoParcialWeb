@@ -3,3 +3,4 @@
 ### NetBeans ###
 *.jar
 *.properties
+/Web del Parcial/dist/

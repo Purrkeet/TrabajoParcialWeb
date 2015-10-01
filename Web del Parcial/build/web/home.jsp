@@ -43,10 +43,10 @@
 		<nav>
 			<img src="imagenes/logo.png" />
 			<ul>
-				<li><a href="home.html">Home</a></li>
-				<li><a href="crear_articulo.html">Post an Article</a></li>
-				<li><a href="faq.html">FAQ</a></li>
-				<li><a href="ingresar.html">Salir</a></li>
+				<li><a href="home.jsp">Home</a></li>
+				<li><a href="crear_articulo.jsp">Post an Article</a></li>
+				<li><a href="faq.jsp">FAQ</a></li>
+				<li><a href="ingresar.jsp">Salir</a></li>
 			</ul>
 		</nav>
 	</header>

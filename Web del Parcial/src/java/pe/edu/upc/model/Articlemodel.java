@@ -50,6 +50,7 @@ public class Articlemodel implements Imodel<Article>{
     public List<Article> getAllarticlesbytitle (String titulo) throws SQLException
     {
         return dao.getAllarticlesbytitle(titulo);
+        
     }
 
 }
