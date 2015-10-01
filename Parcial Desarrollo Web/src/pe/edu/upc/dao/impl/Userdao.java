@@ -70,20 +70,18 @@ public class Userdao implements IUser
         con = Database.getConnection();
         con.setAutoCommit(false);
        
-        String insert = "UPDATE Comment SET username=?,email=?,password=?,create_time=?,name=?,lastname=?,score=?,steamid=?,facebookid=?,profileinfo=? WHERE idcomment=?";                
+        String insert = "UPDATE user SET username=?, email=?,password=?, name=?, lastname=?, score=?, steamid=?, facebookid=?,	profile_info=?	WHERE iduser=?";                
         PreparedStatement prepare = con.prepareStatement(insert);
         prepare.setString(1, o.getUsername());
         prepare.setString(2, o.getEmail());
         prepare.setString(3, o.getPassword());
-        java.sql.Date createDate = new java.sql.Date(o.getCreate_time().getTime());
-        prepare.setDate(4,createDate);
-        prepare.setString(5, o.getName());
-        prepare.setString(6, o.getLastname());
-        prepare.setInt(7, o.getScore());
-        prepare.setString(8, o.getSteamid());
-        prepare.setString(9, o.getFacebookid());
-        prepare.setString(10, o.getProfileinfo());
-        prepare.setInt(11, o.getIduser());
+        prepare.setString(4, o.getName());
+        prepare.setString(5, o.getLastname());
+        prepare.setInt(6, o.getScore());
+        prepare.setString(7, o.getSteamid());
+        prepare.setString(8, o.getFacebookid());
+        prepare.setString(9, o.getProfileinfo());
+        prepare.setInt(10, o.getIduser());
         
         rpta = prepare.executeUpdate();
          
