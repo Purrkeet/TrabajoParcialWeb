@@ -27,7 +27,7 @@ public class ServletUser extends HttpServlet
         Usermodel umodel = new Usermodel();
         User user = new User();
         List<User> lista = new ArrayList<>();
-        String login, password;
+        String login, password, username, email, name, lastname;
         
         try (PrintWriter out = response.getWriter()) 
         {
@@ -55,6 +55,21 @@ public class ServletUser extends HttpServlet
                     break;
                    
                case "CREATE":
+                   
+                    email = request.getParameter("email");
+                    name = request.getParameter("nombre");
+                    lastname = request.getParameter("apellido");
+                    login = request.getParameter("usuario");
+                    password = request.getParameter("contrasena");
+                    
+                    user.setEmail(email);
+                    user.setName(name);
+                    user.setLastname(lastname);
+                    user.setUsername(login);
+                    user.setPassword(password);
+                    
+                    umodel.Register(user);
+                    response.sendRedirect("home.jsp");
                    
                    break;
                case "READ":

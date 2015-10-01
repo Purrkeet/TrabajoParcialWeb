@@ -23,6 +23,7 @@ public class ServletCategory extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException 
     {
         response.setContentType("text/html;charset=UTF-8");
+        
         String peticion = request.getParameter("peticion");
         Categorymodel categorymodel = new Categorymodel();
         Category category = new Category();
@@ -33,7 +34,9 @@ public class ServletCategory extends HttpServlet
         
         try (PrintWriter out = response.getWriter()) 
         {
-            switch(peticion){
+            switch(peticion)
+            {
+                
             case "LIST":
             lista = categorymodel.GetList();
                 //Lis(request, response,lista, categorymodel);                  

@@ -20,12 +20,16 @@
                             <input type="hidden" name="peticion" value="CREATE" />
                             <label>Email:</label>
                             <input name="email" placeholder="ejemplo@dot.com"type="text" />
+                            <label>Nombre:</label>
+                            <input name="nombre" placeholder="Erik"type="text" />
+                            <label>Apellido:</label>
+                            <input name="apellido" placeholder="Medina mas na"type="text" />
                             <label>Usuario:</label>
-                            <input name="usuario" placeholder="por ejemplo: eltragasable"type="text" />
-                            <label>ContraseÃ±a:</label>
-                            <input name="contrasena" type="password" />
-                            <label>Repita contraseÃ±a:</label>
-                            <input name="contrasena2" type="password" />
+                            <input name="usuario" placeholder="por ejemplo: Lucking eltragasable"type="text" />
+                            <label>Password:</label>
+                            <input name="contrasena" placeholder="**********" type="password" />
+                            <label>Repita Password:</label>
+                            <input name="contrasena2" placeholder="**********" type="password" />
                             <div name="div_errores">
                             </div>
                             <label>Descifre el captcha:<br>1+1:</label>
