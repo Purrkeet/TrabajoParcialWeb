@@ -59,12 +59,13 @@ public class main {
         oUser2.setIduser(2);
         
         try {
-            uDao.create(oUser1);
-            uDao.create(oUser);
-            aDao.create(oArticle);
-            cDao.create(oComm);
+            //uDao.create(oUser1);
+            //uDao.create(oUser);
+          //  aDao.create(oArticle);
+        //    cDao.create(oComm);
             uDao.update(oUser2);
             List<User> lU= uDao.getAll();
+            System.out.println(uDao.read(2).toString());
             for ( User u :lU ) {
                System.out.println( u.toString());
             }
