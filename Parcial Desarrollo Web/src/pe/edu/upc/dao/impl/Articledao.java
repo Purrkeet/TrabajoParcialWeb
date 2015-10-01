@@ -24,7 +24,7 @@ public class Articledao implements IArticle {
         String insert1 = "INSERT INTO article (numviews, score,text,user_iduser,ts_create,ts_update) " + "VALUES(?,?,?,?,?,?)";
         
 
-        PreparedStatement prepare1 = con.prepareStatement(insert1, PreparedStatement.RETURN_GENERATED_KEYS);
+        PreparedStatement prepare1 = con.prepareStatement(insert1);
         prepare1.setInt(1, o.getNumviews());
         prepare1.setInt(2, o.getScore());
         prepare1.setString(3, o.getText());

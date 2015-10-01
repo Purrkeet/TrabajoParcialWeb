@@ -26,7 +26,7 @@ public class Commentdao implements IComment
  
         String insert = "INSERT INTO Comment (TEXT,score,user_iduser,article_idarticle) VALUES(?,?,?,?)";
         
-        PreparedStatement prepare = con.prepareStatement(insert, PreparedStatement.RETURN_GENERATED_KEYS);
+        PreparedStatement prepare = con.prepareStatement(insert);
         prepare.setString(1, o.getTEXT());
         prepare.setInt(2, o.getScore());
         prepare.setInt(3, o.getUser().getIduser());
