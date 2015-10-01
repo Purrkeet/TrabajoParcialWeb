@@ -24,7 +24,7 @@ public class Userdao implements IUser
  
         String insert = "INSERT INTO user (username,email,password,create_time,name,lastname,score,steamid,facebookid,profile_info) VALUES(?,?,?,?,?,?,?,?,?,?)";
         
-        PreparedStatement prepare = con.prepareStatement(insert, PreparedStatement.RETURN_GENERATED_KEYS);
+        PreparedStatement prepare = con.prepareStatement(insert);
         
         prepare.setString(1, o.getUsername());
         prepare.setString(2, o.getEmail());
@@ -132,7 +132,30 @@ public class Userdao implements IUser
     @Override
     public List<User> getAll() throws SQLException 
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         User user = null;
+
+        con = Database.getConnection();
+        PreparedStatement prepare = con.prepareStatement("SELECT iduser, username, email, password, create_time, name, lastname, score, steamid, facebookid, profile_info FROM user");
+        
+        ResultSet rs = prepare.executeQuery();
+        List<User> lista=new ArrayList<>();
+        if (rs.next()) 
+        {
+            user = new User();
+            
+            user.setIduser(rs.getInt("iduser"));
+            user.setUsername(rs.getString("username"));
+            user.setPassword(rs.getString("password"));
+            user.setEmail(rs.getString("email"));
+            user.setCreate_time(rs.getDate("create_time"));
+            user.setName(rs.getString("name"));
+            user.setLastname(rs.getString("lastname"));
+            user.setScore(rs.getInt("score"));
+            user.setSteamid(rs.getString("steamid"));
+            lista.add(user);
+        }
+        
+        return lista;
     }
 
     @Override

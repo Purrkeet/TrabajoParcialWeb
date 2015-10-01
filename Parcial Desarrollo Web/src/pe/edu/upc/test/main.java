@@ -30,7 +30,7 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        User oUser1 = new User();
+       /* User oUser1 = new User();
         oUser1.setName("Giu");
         oUser1.setPassword("go");
         oUser1.setUsername("Giuseppe");
@@ -53,14 +53,24 @@ public class main {
          Comment oComm= new Comment();
          oComm.setArticle(oArticle);
          oComm.setUser(oUser);
-         oComm.setTEXT("Oh gosh!!");
+         oComm.setTEXT("Oh gosh!!");*/
          IArticle aDao = Factory.getFactory(FactoryType.MYSQL_FACTORY).getArticle();
          IUser uDao= Factory.getFactory(FactoryType.MYSQL_FACTORY).getUser();
          IComment cDao = Factory.getFactory(FactoryType.MYSQL_FACTORY).getComment();
         try {
-            uDao.create(oUser1);
+           /* uDao.create(oUser1);
             aDao.create(oArticle);
-            cDao.create(oComm);
+            cDao.create(oComm);*/
+            for ( User u : uDao.getAll()) {
+                u.toString();
+            }
+            for (Article a: aDao.getAll()) {
+                a.toString();
+            }
+            for (Comment c : cDao.getAll()) {
+                c.toString();
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
