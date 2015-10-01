@@ -36,7 +36,7 @@ public class ServletUser extends HttpServlet
                case "login":
                    
                     login = request.getParameter("usuario");
-                    password = request.getParameter("contraseÃ±a");
+                    password = request.getParameter("contrasena");
                                      
                     user.setUsername(login);
                     user.setPassword(password);

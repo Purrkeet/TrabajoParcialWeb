@@ -34,7 +34,7 @@
                             <label>Usuario:</label>
                             <input name="usuario" type="text" />
                             <label>ContraseÃ±a:</label>
-                            <input name="contraseÃ±a" type="text" />
+                            <input name="contrasena" type="text" />
                             <div name="div_errores">
                             </div>
                             <input name="acceder" type="submit" value="Acceder" />
