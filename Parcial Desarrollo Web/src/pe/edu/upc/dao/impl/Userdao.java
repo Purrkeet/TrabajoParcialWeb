@@ -70,7 +70,7 @@ public class Userdao implements IUser
         con = Database.getConnection();
         con.setAutoCommit(false);
        
-        String insert = "UPDATE comment SET username=?,email=?,password=?,create_time=?,name=?,lastname=?,score=?,steamid=?,facebookid=?,profileinfo=? WHERE idcomment=?";                
+        String insert = "UPDATE Comment SET username=?,email=?,password=?,create_time=?,name=?,lastname=?,score=?,steamid=?,facebookid=?,profileinfo=? WHERE idcomment=?";                
         PreparedStatement prepare = con.prepareStatement(insert);
         prepare.setString(1, o.getUsername());
         prepare.setString(2, o.getEmail());
