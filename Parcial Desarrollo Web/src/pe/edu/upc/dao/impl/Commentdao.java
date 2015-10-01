@@ -24,7 +24,7 @@ public class Commentdao implements IComment
         con = Database.getConnection();
         con.setAutoCommit(false);
  
-        String insert = "INSERT INTO Comment (TEXT,score,user_iduser,article_idarticle) VALUES(?,?,?,?)";
+        String insert = "INSERT INTO comment (TEXT,score,user_iduser,article_idarticle) VALUES(?,?,?,?)";
         
         PreparedStatement prepare = con.prepareStatement(insert);
         prepare.setString(1, o.getTEXT());
@@ -62,7 +62,7 @@ public class Commentdao implements IComment
         con = Database.getConnection();
         con.setAutoCommit(false);
        
-        String insert = "UPDATE Comment SET TEXT=?,score=?,user_iduser=?,article_idarticle=? WHERE idcomment=?";                
+        String insert = "UPDATE comment SET TEXT=?,score=?,user_iduser=?,article_idarticle=? WHERE idcomment=?";                
         PreparedStatement prepare = con.prepareStatement(insert);
         prepare.setString(1, o.getTEXT());
         prepare.setInt(2, o.getScore());
@@ -93,7 +93,7 @@ public class Commentdao implements IComment
         con = Database.getConnection();
         con.setAutoCommit(false);
         
-        String insert = "DELETE FROM Comment WHERE idcomment=?";                
+        String insert = "DELETE FROM comment WHERE idcomment=?";                
         PreparedStatement prepare = con.prepareStatement(insert);        
         prepare.setInt(1, id);
         

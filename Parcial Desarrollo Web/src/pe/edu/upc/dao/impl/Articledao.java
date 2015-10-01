@@ -187,6 +187,7 @@ public class Articledao implements IArticle {
             
     }
     
+    @Override
     public List<Article> getAllarticlesbytitle(String titulo) throws SQLException {
             con=Database.getConnection();
             Article article = null;

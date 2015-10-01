@@ -20,18 +20,10 @@ import pe.edu.upc.factory.Factory;
 import pe.edu.upc.factory.FactoryType;
 
 
-
-/**
- *
- * @author Rodri1
- */
 public class main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-       /* User oUser1 = new User();
+        User oUser1 = new User();
         oUser1.setName("Giu");
         oUser1.setPassword("go");
         oUser1.setUsername("Giuseppe");
@@ -54,15 +46,24 @@ public class main {
          Comment oComm= new Comment();
          oComm.setArticle(oArticle);
          oComm.setUser(oUser);
-         oComm.setTEXT("Oh gosh!!");*/
+         oComm.setTEXT("Oh gosh!!");
          IArticle aDao = Factory.getFactory(FactoryType.MYSQL_FACTORY).getArticle();
          IUser uDao= Factory.getFactory(FactoryType.MYSQL_FACTORY).getUser();
          IComment cDao = Factory.getFactory(FactoryType.MYSQL_FACTORY).getComment();
+          User oUser2 = new User();
+        oUser2.setName("Luis");
+        oUser2.setPassword("...");
+        oUser2.setUsername("Lucking");
+        oUser2.setEmail("lucho@dota.xxx");
+        oUser2.setLastname("De-moron");
+        oUser2.setIduser(2);
+        
         try {
-           /* uDao.create(oUser1);
+            uDao.create(oUser1);
             uDao.create(oUser);
             aDao.create(oArticle);
-            cDao.create(oComm);*/
+            cDao.create(oComm);
+            uDao.update(oUser2);
             List<User> lU= uDao.getAll();
             for ( User u :lU ) {
                System.out.println( u.toString());
