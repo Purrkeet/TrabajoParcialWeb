@@ -28,7 +28,8 @@ public class ServletUser extends HttpServlet
         User user = new User();
         List<User> lista = new ArrayList<>();
         String login, password = null, password2 = null, username = null, email = null, name = null, lastname = null;
-        
+         String steamid = null, facebookid = null, Descripcion = null;
+         
         try (PrintWriter out = response.getWriter()) 
         {
            switch(peticion)
@@ -84,6 +85,22 @@ public class ServletUser extends HttpServlet
                case "READ":
                    break;
                case "UPDATE":
+
+                    request.getSession().setAttribute("mail",email);
+                    request.getSession().setAttribute("steam",steamid);
+                    request.getSession().setAttribute("facebook",facebookid);
+                    request.getSession().setAttribute("descripcion",Descripcion);
+                    request.getSession().setAttribute("password",password);
+                    
+                    user.setEmail(email);
+                    user.setSteamid(steamid);
+                    user.setFacebookid(facebookid);
+                    user.setProfileinfo(Descripcion);
+                    user.setPassword(password);
+                    
+                    umodel.Update(user);
+                    response.sendRedirect("home.jsp");
+                    
                    break;
                case "DELETE":
                    break;
