@@ -36,14 +36,14 @@ public class main {
         oUser1.setUsername("Giuseppe");
         oUser1.setEmail("Giu@sep.pe");
         oUser1.setLastname("Seppe");
-        oUser1.setIduser(2);
+        oUser1.setIduser(1);
         User oUser = new User();
         oUser.setName("Erik");
         oUser.setPassword("123456");
         oUser.setUsername("Erikk");
         oUser.setEmail("erik@upc.com");
         oUser.setLastname("Medina");
-        oUser.setIduser(3);
+        oUser.setIduser(2);
          Article oArticle = new Article();
          oArticle.setIdarticle(1);
          oArticle.setTitle("Programando no ando");
@@ -58,7 +58,7 @@ public class main {
          IUser uDao= Factory.getFactory(FactoryType.MYSQL_FACTORY).getUser();
          IComment cDao = Factory.getFactory(FactoryType.MYSQL_FACTORY).getComment();
         try {
-            uDao.create(oUser);
+            uDao.create(oUser1);
             aDao.create(oArticle);
             cDao.create(oComm);
         } catch (SQLException ex) {

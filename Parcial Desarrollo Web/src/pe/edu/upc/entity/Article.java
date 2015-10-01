@@ -19,8 +19,9 @@ public class Article
     {
         numviews = 0;
         score = 0;
-        create_time.getTime();
-        update_time.getTime();
+        
+        create_time= new Date();
+        update_time=new Date();
         
     }
 
