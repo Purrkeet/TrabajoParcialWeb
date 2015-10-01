@@ -46,6 +46,7 @@ DROP TABLE IF EXISTS `dbnoticias`.`article` ;
 CREATE TABLE IF NOT EXISTS `dbnoticias`.`article` (
   `idarticle` INT NOT NULL AUTO_INCREMENT,
   `score` INT NULL,
+  `title` TEXT NULL,
   `text` TEXT NULL,
   `numviews` INT NULL,
   `user_iduser` INT NOT NULL,

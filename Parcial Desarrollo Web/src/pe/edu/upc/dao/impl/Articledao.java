@@ -115,7 +115,7 @@ public class Articledao implements IArticle {
                 PreparedStatement prepare = con.prepareStatement(select);
                 prepare.setInt(1, id);
                 ResultSet rs = prepare.executeQuery();
-               
+                if(rs.next()){
                 article = new Article();
                 article.setIdarticle(rs.getInt("idarticle"));
                 article.setScore(rs.getInt("score"));
@@ -123,7 +123,7 @@ public class Articledao implements IArticle {
                 article.setNumviews(rs.getInt("numviews"));
                 article.setCreate_time(rs.getDate("ts_create"));
                 article.setUpdate_time(rs.getDate("ts_update"));
-
+                }
 
                 con.close();
                 return article;
@@ -169,8 +169,10 @@ public class Articledao implements IArticle {
             {
                 article = new Article();
                 article.setIdarticle(rs.getInt("idarticle"));
+                article.setTitle(rs.getString("title"));
+                article.setText(rs.getString("TEXT"));
                 article.setScore(rs.getInt("score"));
-                article.setText(rs.getString("text"));
+                
                 article.setNumviews(rs.getInt("numviews"));
                 article.setCreate_time(rs.getDate("ts_create"));
                 article.setUpdate_time(rs.getDate("ts_update"));
