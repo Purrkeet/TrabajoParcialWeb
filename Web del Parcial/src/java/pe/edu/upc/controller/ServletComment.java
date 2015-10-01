@@ -12,21 +12,29 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import pe.edu.upc.entity.Article;
 import pe.edu.upc.entity.Comment;
+import pe.edu.upc.model.Articlemodel;
 import pe.edu.upc.model.Commentmodel;
+import pe.edu.upc.model.Usermodel;
 
 @WebServlet(name = "ServletComment", urlPatterns = {"/ServletComment"})
 public class ServletComment extends HttpServlet 
 {
 
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException 
+   protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException 
     {
         response.setContentType("text/html;charset=UTF-8");
         
         String peticion = request.getParameter("peticion");
         Commentmodel cmodel = new Commentmodel();
+        Usermodel cuser= new Usermodel();
+        Articlemodel cart=new Articlemodel();
         Comment comment = new Comment();
+        Article art= null;
+        int idarticulo;
+        String comentario;
         List<Comment> lista = new ArrayList<>();
         
         try (PrintWriter out = response.getWriter()) 
@@ -34,7 +42,13 @@ public class ServletComment extends HttpServlet
             switch(peticion)
            {
                case "CREATE":
-                   
+                   comentario = request.getParameter("comentario");
+                   comment.setScore(0);
+                   comment.setTEXT(comentario);
+                   idarticulo=Integer.parseInt(request.getParameter("idarticulo"));
+                   art=cart.Get(idarticulo);
+                   comment.setArticle(art);
+                   cmodel.Register(comment);
                    break;
                case "UPDATE":
                    break;
