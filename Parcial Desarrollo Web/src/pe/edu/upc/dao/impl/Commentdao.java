@@ -24,7 +24,7 @@ public class Commentdao implements IComment
         con = Database.getConnection();
         con.setAutoCommit(false);
  
-        String insert = "INSERT INTO Comment (text,score,iduser,idarticle) VALUES(?,?,?,?)";
+        String insert = "INSERT INTO comment (text,score,iduser,idarticle) VALUES(?,?,?,?)";
         
         PreparedStatement prepare = con.prepareStatement(insert, PreparedStatement.RETURN_GENERATED_KEYS);
         prepare.setString(1, o.getTEXT());
@@ -62,7 +62,7 @@ public class Commentdao implements IComment
         con = Database.getConnection();
         con.setAutoCommit(false);
        
-        String insert = "UPDATE Comment SET TEXT=?,score=?,iduser=?,idarticle=? WHERE idcomment=?";                
+        String insert = "UPDATE comment SET TEXT=?,score=?,iduser=?,idarticle=? WHERE idcomment=?";                
         PreparedStatement prepare = con.prepareStatement(insert);
         prepare.setString(1, o.getTEXT());
         prepare.setInt(2, o.getScore());
@@ -93,7 +93,7 @@ public class Commentdao implements IComment
         con = Database.getConnection();
         con.setAutoCommit(false);
         
-        String insert = "DELETE FROM Comment WHERE idcomment=?";                
+        String insert = "DELETE FROM comment WHERE idcomment=?";                
         PreparedStatement prepare = con.prepareStatement(insert);        
         prepare.setInt(1, id);
         
@@ -130,7 +130,7 @@ public class Commentdao implements IComment
         Article article = null;
         List<Comment> lista = new ArrayList<>();
         
-        String select="SELECT c.idcomment, c.TEXT, c.score, c.iduser, c.idarticle FROM Comment c, User u, Article a WHERE c.idarticle = a.idarticle AND a.idarticle=?";                   
+        String select="SELECT c.idcomment, c.TEXT, c.score, c.iduser, c.idarticle FROM comment c, user u, article a WHERE c.idarticle = a.idarticle AND a.idarticle=?";                   
         PreparedStatement prepare = con.prepareStatement(select);
         prepare.setInt(1, idarticle);
         ResultSet rs = prepare.executeQuery();
