@@ -45,7 +45,7 @@ public class main {
         oUser.setLastname("Medina");
         oUser.setIduser(3);
          Article oArticle = new Article();
-         oArticle.setIdarticle(1);
+         oArticle.setIdarticle(2);
          oArticle.setTitle("Programando no ando");
          oArticle.setText("askjfhaskf asdlkfjh sadfjh asdjhf sakldjfh\nasfsdfkjhsdfjkhsfjksahf\nsdfaishfudasdfasdf "
                  + "\nasdfasodifjasoifaso\nsadoifjsadoifjsadoifjasodifj");
@@ -58,7 +58,7 @@ public class main {
          IUser uDao= Factory.getFactory(FactoryType.MYSQL_FACTORY).getUser();
          IComment cDao = Factory.getFactory(FactoryType.MYSQL_FACTORY).getComment();
         try {
-            uDao.create(oUser);
+            uDao.create(oUser1);
             aDao.create(oArticle);
             cDao.create(oComm);
         } catch (SQLException ex) {
