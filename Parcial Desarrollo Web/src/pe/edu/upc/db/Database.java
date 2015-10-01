@@ -49,7 +49,7 @@ public final class Database
     public static Connection getConnectionMySQL() throws SQLException
     {
         Connection conn = null;
-
+        //jdbc:mysql://localhost:3306/dbnoticias
         String jdbcUrl = "jdbc:mysql://" + hostname + ":" + port + "/" + database;
         conn = DriverManager.getConnection(jdbcUrl, username, password);
         System.out.println("Conexion con exito!");

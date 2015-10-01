@@ -141,7 +141,7 @@ public class Userdao implements IUser
         User user = null;
 
         con = Database.getConnection();
-        PreparedStatement prepare = con.prepareStatement("SELECT iduser,username,password, FROM User WHERE username =? and password=?");
+        PreparedStatement prepare = con.prepareStatement("SELECT iduser,username,password FROM user WHERE username =? and password=?");
         prepare.setString(1, o.getUsername());
         prepare.setString(2, o.getPassword());
         ResultSet rs = prepare.executeQuery();
