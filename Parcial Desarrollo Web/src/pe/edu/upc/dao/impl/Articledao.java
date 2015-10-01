@@ -111,7 +111,7 @@ public class Articledao implements IArticle {
     public Article read(int id) throws SQLException {
                 con = Database.getConnection();
                 Article article = null ; 
-                String select = "SELECT idarticle,score,text,numviews,create_time,update_time FROM article WHERE idarticle=?";
+                String select = "SELECT idarticle,score,text,numviews,ts_create,ts_update FROM article WHERE idarticle=?";
                 PreparedStatement prepare = con.prepareStatement(select);
                 prepare.setInt(1, id);
                 ResultSet rs = prepare.executeQuery();
@@ -121,8 +121,8 @@ public class Articledao implements IArticle {
                 article.setScore(rs.getInt("score"));
                 article.setText(rs.getString("text"));
                 article.setNumviews(rs.getInt("numviews"));
-                article.setCreate_time(rs.getDate("create_time"));
-                article.setUpdate_time(rs.getDate("update_time"));
+                article.setCreate_time(rs.getDate("ts_create"));
+                article.setUpdate_time(rs.getDate("ts_update"));
 
 
                 con.close();
