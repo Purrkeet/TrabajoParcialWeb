@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import pe.edu.upc.entity.Article;
 import pe.edu.upc.entity.Comment;
+import pe.edu.upc.entity.User;
 import pe.edu.upc.model.Articlemodel;
 import pe.edu.upc.model.Commentmodel;
 import pe.edu.upc.model.Usermodel;
@@ -33,6 +34,8 @@ public class ServletComment extends HttpServlet
         Articlemodel cart=new Articlemodel();
         Comment comment = new Comment();
         Article art= null;
+        User usr =null ; 
+
         int idarticulo;
         String comentario;
         List<Comment> lista = new ArrayList<>();
@@ -45,14 +48,19 @@ public class ServletComment extends HttpServlet
                    comentario = request.getParameter("comentario");
                    comment.setScore(0);
                    comment.setTEXT(comentario);
-                   idarticulo=Integer.parseInt(request.getParameter("idarticulo"));
+                   //idarticulo=Integer.parseInt(request.getParameter("idarticulo"));
+                   idarticulo=2;
                    art=cart.Get(idarticulo);
+                   //usr=(User) request.getSession().getAttribute("usuario");
+                   usr= cuser.Get(1);
                    comment.setArticle(art);
-                   cmodel.Register(comment);
-                   break;
+                   comment.setUser(usr);
+                   System.out.println(cmodel.Register(comment));
+                           break;
                case "UPDATE":
                    break;
                case "DELETE":
+                   
                    break;
                case "GETAllBYARTICLE":
                    break;
