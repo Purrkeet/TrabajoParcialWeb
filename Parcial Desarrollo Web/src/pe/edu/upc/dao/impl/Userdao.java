@@ -22,7 +22,7 @@ public class Userdao implements IUser
         con = Database.getConnection();
         con.setAutoCommit(false);
  
-        String insert = "INSERT INTO User (username,email,password,create_time,name,lastname,score,steamid,facebookid,profile_info) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        String insert = "INSERT INTO user (username,email,password,create_time,name,lastname,score,steamid,facebookid,profile_info) VALUES(?,?,?,?,?,?,?,?,?,?)";
         
         PreparedStatement prepare = con.prepareStatement(insert, PreparedStatement.RETURN_GENERATED_KEYS);
         
@@ -108,7 +108,7 @@ public class Userdao implements IUser
         con = Database.getConnection();
         con.setAutoCommit(false);
         
-        String insert = "DELETE FROM User WHERE iduser=?";                
+        String insert = "DELETE FROM user WHERE iduser=?";                
         PreparedStatement prepare = con.prepareStatement(insert);        
         prepare.setInt(1, id);
         
