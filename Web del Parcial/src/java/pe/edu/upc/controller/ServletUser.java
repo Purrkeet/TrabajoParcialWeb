@@ -58,24 +58,24 @@ public class ServletUser extends HttpServlet
                    
                case "CREATE":
                    
-                    /*email = request.getSession().getAttribute("email");
+                    email = request.getParameter("email");
                     name = request.getParameter("nombre");
                     lastname = request.getParameter("apellido");
                     login = request.getParameter("usuario");
                     password = request.getParameter("contrasena");
-                    password2 = request.getParameter("contrasena2");*/
+                    password2 = request.getParameter("contrasena2");
                     
-                    request.getSession().setAttribute("email",email);
+                    /*request.getSession().setAttribute("email",email);
                     request.getSession().setAttribute("nombre",name);
                     request.getSession().setAttribute("apellido",lastname);
                     request.getSession().setAttribute("usuario",username);
                     request.getSession().setAttribute("contrasena",password);
-                    request.getSession().setAttribute("contrasena2",password2);
+                    request.getSession().setAttribute("contrasena2",password2);*/
                     
                     user.setEmail(email);
                     user.setName(name);
                     user.setLastname(lastname);
-                    user.setUsername(username);
+                    user.setUsername(login);
                     user.setPassword(password);
                     
                     umodel.Register(user);
