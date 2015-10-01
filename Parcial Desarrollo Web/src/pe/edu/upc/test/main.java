@@ -60,6 +60,7 @@ public class main {
          IComment cDao = Factory.getFactory(FactoryType.MYSQL_FACTORY).getComment();
         try {
            /* uDao.create(oUser1);
+            uDao.create(oUser);
             aDao.create(oArticle);
             cDao.create(oComm);*/
             List<User> lU= uDao.getAll();
