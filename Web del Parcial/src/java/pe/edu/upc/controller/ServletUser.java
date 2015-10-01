@@ -86,13 +86,13 @@ public class ServletUser extends HttpServlet
                case "READ":
                    break;
                case "UPDATE":
-
-                    request.getSession().setAttribute("mail",email);
-                    request.getSession().setAttribute("steam",steamid);
-                    request.getSession().setAttribute("facebook",facebookid);
-                    request.getSession().setAttribute("descripcion",Descripcion);
-                    request.getSession().setAttribute("password",password);
-                    
+                   
+                   email = request.getParameter("mail");
+                   steamid = request.getParameter("steam");
+                   facebookid = request.getParameter("facebook");
+                   Descripcion = request.getParameter("descripcion");
+                   password = request.getParameter("password");
+   
                     user.setEmail(email);
                     user.setSteamid(steamid);
                     user.setFacebookid(facebookid);

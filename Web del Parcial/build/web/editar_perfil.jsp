@@ -77,20 +77,24 @@
                             <input type="hidden" name="peticion" value="UPDATE" />
 				<ul>
 					<li>
-						<label>Correo electrÃ³nico:</label>
-						<input name="correo" type="text" placeholder="Ingrese su nuevo correo electrÃ³nico" />
+						<label>Email:</label>
+						<input name="mail" type="text" placeholder="Ingrese su nuevo email" />
 					</li>
 					<li>
-						<label>Imagen de perfil:</label>
-						<input name="imagen_perfil" type="file" />
+						<label>Steam ID:</label>
+						<input name="steamid" type="text" placeholder="STEAM ID" />
+					</li>
+                                        <li>
+						<label>Facebook ID:</label>
+						<input name="facebookid" type="text" placeholder="STEAM ID" />
 					</li>
 					<li>
-						<label>ContraseÃ±a:</label>
-						<input name="contraseÃ±a" type="password" placeholder="Ingresa su nueva contraseÃ±a" />
+						<label>Descripcion:</label>
+						<input name="descripcion" type="password" placeholder="Ingresa su nueva descripcion" />
 					</li>
 					<li>
-						<label>Repetir contraseÃ±a:</label>
-						<input name="re_contraseÃ±a" type="password" placeholder="Reingrese su nueva contraseÃ±a" />
+						<label>Password:</label>
+						<input name="re_contraseÃ±a" type="password" placeholder="Ingrese su nuevo Password" />
 					</li>
 					<li>
 						<input type="submit" value="Guardar cambios" />
