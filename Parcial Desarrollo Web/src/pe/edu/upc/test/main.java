@@ -36,16 +36,16 @@ public class main {
         oUser1.setUsername("Giuseppe");
         oUser1.setEmail("Giu@sep.pe");
         oUser1.setLastname("Seppe");
-        oUser1.setIduser(2);
+        oUser1.setIduser(1);
         User oUser = new User();
         oUser.setName("Erik");
         oUser.setPassword("123456");
         oUser.setUsername("Erikk");
         oUser.setEmail("erik@upc.com");
         oUser.setLastname("Medina");
-        oUser.setIduser(3);
+        oUser.setIduser(2);
          Article oArticle = new Article();
-         oArticle.setIdarticle(2);
+         oArticle.setIdarticle(1);
          oArticle.setTitle("Programando no ando");
          oArticle.setText("askjfhaskf asdlkfjh sadfjh asdjhf sakldjfh\nasfsdfkjhsdfjkhsfjksahf\nsdfaishfudasdfasdf "
                  + "\nasdfasodifjasoifaso\nsadoifjsadoifjsadoifjasodifj");
