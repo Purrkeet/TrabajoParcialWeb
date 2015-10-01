@@ -1,0 +1,74 @@
+section #top h1 {
+	padding-left: 45%;
+	padding-top: 2%;
+}
+
+section #editar_perfil {
+	width: 30%;
+	margin-top: 6%;
+	margin-left: 32%;
+	padding: 1%;
+	display: inline-block;
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+section #editar_perfil ul {
+	margin: 0%;
+	padding: 0%;
+}
+
+section #editar_perfil ul li {
+	margin: 0%;
+	list-style: none;
+	line-height: 5em;
+}
+
+section form input[type="text"] {
+	float: right;
+	font-size: 15px;
+	box-sizing: border-box;
+	margin: 4% 4% 0% 4%;
+	width: 60%;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid #7ac9b7;
+}
+
+section form input[type="file"] {
+	float: right;
+	width: auto;
+	font-size: 15px;
+	box-sizing: border-box;
+	margin: 4% 4% 0% 4%;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid #7ac9b7;
+}
+
+section form input[type="password"] {
+	float: right;
+	font-size: 15px;
+	box-sizing: border-box;
+	margin: 4% 4% 0% 4%;
+	width: 60%;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid #7ac9b7;
+}
+
+section form input[type="submit"] {
+	font-size: 16px;
+	width: 25%;
+	margin: 1% 0% 0% 40%;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid #7ac9b7;
+	background-color: #4180C5;
+	color: white;
+	cursor: pointer;
+}
+
+section form input[type="submit"]:hover {
+	background-color: black;
+}
