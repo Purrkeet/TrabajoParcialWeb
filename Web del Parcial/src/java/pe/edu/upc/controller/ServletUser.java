@@ -46,6 +46,7 @@ public class ServletUser extends HttpServlet
                     
                     if(user != null)
                     {  
+                       user = umodel.Get(user.getIduser());
                        request.getSession().setAttribute("usuario",user);
                        response.sendRedirect("home.jsp");
                     }
@@ -87,9 +88,11 @@ public class ServletUser extends HttpServlet
                    break;
                case "UPDATE":
                    
+                   user = (User)request.getSession(false).getAttribute("usuario");
+                   
                    email = request.getParameter("mail");
-                   steamid = request.getParameter("steam");
-                   facebookid = request.getParameter("facebook");
+                   steamid = request.getParameter("steamid");
+                   facebookid = request.getParameter("facebookid");
                    Descripcion = request.getParameter("descripcion");
                    password = request.getParameter("password");
    

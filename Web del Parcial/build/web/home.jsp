@@ -58,11 +58,11 @@
 
 				<nav id="menu">
 					<ul>
-						<li><a href="editar_perfil.html">Perfil</a></li>
-						<li><a href="ver_articulos.html">Adm. de ArtÃ­culos</a></li>
-						<li><a href="crear_articulo.html">Crear ArtÃ­culo</a></li>
-						<li><a href="faq.html">FAQ</a></li>
-						<li><a href="ingresar.html">Salir</a></li>
+						<li><a href="editar_perfil.jsp">Perfil</a></li>
+						<li><a href="ver_articulos.jsp">Adm. de ArtÃ­culos</a></li>
+						<li><a href="crear_articulo.jsp">Crear ArtÃ­culo</a></li>
+						<li><a href="faq.jsp">FAQ</a></li>
+						<li><a href="ingresar.jsp">Salir</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -93,7 +93,7 @@
 						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 					</p>
 					<p>
-						<center><a href="articulo.html">Ver mÃ¡s ...</a></center>
+						<center><a href="articulo.jsp">Ver mÃ¡s ...</a></center>
 					</p>
 				</span>
 			</div>
@@ -110,7 +110,7 @@
 						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 					</p>
 					<p>
-						<center><a href="articulo.html">Ver mÃ¡s ...</a></center>
+						<center><a href="articulo.jsp">Ver mÃ¡s ...</a></center>
 					</p>
 				</span>
 			</div>
@@ -127,7 +127,7 @@
 						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 					</p>
 					<p>
-						<center><a href="articulo.html">Ver mÃ¡s ...</a></center>
+						<center><a href="articulo.jsp">Ver mÃ¡s ...</a></center>
 					</p>
 				</span>
 			</div>

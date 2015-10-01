@@ -90,11 +90,11 @@
 					</li>
 					<li>
 						<label>Descripcion:</label>
-						<input name="descripcion" type="password" placeholder="Ingresa su nueva descripcion" />
+						<input name="descripcion" type="text" placeholder="Ingresa su nueva descripcion" />
 					</li>
 					<li>
 						<label>Password:</label>
-						<input name="re_contraseÃ±a" type="password" placeholder="Ingrese su nuevo Password" />
+						<input name="password" type="password" placeholder="Ingrese su nuevo Password" />
 					</li>
 					<li>
 						<input type="submit" value="Guardar cambios" />
