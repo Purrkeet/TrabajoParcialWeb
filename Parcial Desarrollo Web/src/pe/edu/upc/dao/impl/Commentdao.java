@@ -164,7 +164,7 @@ public class Commentdao implements IComment
         Article article = null;
         List<Comment> lista = new ArrayList<>();
         
-        String select="SELECT c.idcomment, c.TEXT, c.score, c.user_iduser, c.article_idarticle FROM Comment c, User u WHERE u.iduser = c.iduser AND u.iduser = ?";                   
+        String select="SELECT c.idcomment, c.TEXT, c.score, c.user_iduser, c.article_idarticle FROM comment c, user u WHERE u.iduser = c.iduser AND u.iduser = ?";                   
         PreparedStatement prepare = con.prepareStatement(select);
         prepare.setInt(1, iduser);
         ResultSet rs = prepare.executeQuery();

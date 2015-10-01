@@ -161,7 +161,7 @@ public class Articledao implements IArticle {
             User user = null;  
             List<Article> lista = new ArrayList<>();
             //esta query esta mal , hay que corregirla
-            String select="SELECT c.idarticle, c.title, c.TEXT, c.score, c.iduser FROM article a," + " user u WHERE u.iduser = c.iduser AND u.iduser = ?";                   
+            String select="SELECT a.idarticle, a.title, a.TEXT, a.score, a.user_iduser, numviews, ts_create, ts_update FROM article a WHERE u.iduser = ?";                   
             PreparedStatement prepare = con.prepareStatement(select);
             prepare.setInt(1, iduser);
             ResultSet rs = prepare.executeQuery();
@@ -172,7 +172,9 @@ public class Articledao implements IArticle {
                 article.setTitle(rs.getString("title"));
                 article.setText(rs.getString("TEXT"));
                 article.setScore(rs.getInt("score"));
-                
+                User oU = new User();
+                oU.setIduser(rs.getInt("user_iduser"));
+                article.setUser(oU);
                 article.setNumviews(rs.getInt("numviews"));
                 article.setCreate_time(rs.getDate("ts_create"));
                 article.setUpdate_time(rs.getDate("ts_update"));
@@ -191,17 +193,20 @@ public class Articledao implements IArticle {
             User user = null;  
             List<Article> lista = new ArrayList<>();
             //esta query esta mal , hay que corregirla
-            String select="SELECT c.idarticle, c.title, c.TEXT, c.score, c.iduser, c.idarticle FROM article a WHERE a.title = ?";                   
+            String select="SELECT idarticle, title, TEXT, score, user_iduser,numviews,ts_create,ts_update FROM article  WHERE title LIKE ?";                   
             PreparedStatement prepare = con.prepareStatement(select);
-            prepare.setString(1, titulo);
+            prepare.setString(1, "%"+titulo+"%");
             ResultSet rs = prepare.executeQuery();
              while (rs.next()) 
             {
                 article = new Article();
                 article.setIdarticle(rs.getInt("idarticle"));
-                article.setScore(rs.getInt("score"));
-                article.setText(rs.getString("text"));
                 article.setTitle(rs.getString("title"));
+                article.setText(rs.getString("TEXT"));
+                article.setScore(rs.getInt("score"));
+                User oU = new User();
+                 oU.setIduser(rs.getInt("user_iduser"));
+                article.setUser(oU);                
                 article.setNumviews(rs.getInt("numviews"));
                 article.setCreate_time(rs.getDate("ts_create"));
                 article.setUpdate_time(rs.getDate("ts_update"));
