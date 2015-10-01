@@ -83,6 +83,7 @@
 		<article class="editor">
 			<form method="POST" action="ServletArticle">
                             <input type="hidden" name="peticion" value="CREATE" />
+                            <label>Titulo:</label><input type="text" name="titulo" />
                             <textarea name="articulo" id="editor_html">
                             </textarea>
                             <label>Etiquetas:</label>

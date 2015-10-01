@@ -47,11 +47,9 @@ public class Articlemodel implements Imodel<Article>{
         return dao.getAllarticlesbyuser(iduser);
     }
     
-    public List<Article> getAllarticlesbytitle (int idtitle) throws SQLException
+    public List<Article> getAllarticlesbytitle (String titulo) throws SQLException
     {
-        return dao.getAllarticlesbyuser(idtitle);
+        return dao.getAllarticlesbytitle(titulo);
     }
-    
-    
 
 }

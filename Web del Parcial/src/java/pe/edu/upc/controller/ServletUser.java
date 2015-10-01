@@ -46,6 +46,7 @@ public class ServletUser extends HttpServlet
                     
                     if(user != null)
                     {  
+                       request.getSession().setAttribute("idusuario",user.getIduser());
                        response.sendRedirect("home.jsp");
                     }
                     
